@@ -1,27 +1,27 @@
 # §2 — Ticket, Briefing & Phase Dispatch Standards
 
-> **Policy reference file.** Loaded on-demand from `.claude/policies/`. Core rules live in CLAUDE.md.
+> **Policy reference file.** Loaded on-demand from `.claude/TeamDocument/1. Policies/`. Core rules live in CLAUDE.md.
 
 ---
 
-## Phase Dispatch Report (AM → Commander ท่านผู้บัญชาการ)
+## Phase Dispatch Report (KP → Chief Manager Martin)
 
-When AM opens a phase, AM **must present a Phase Dispatch Report to Commander ท่านผู้บัญชาการ** before any team begins work. This tells Commander ท่านผู้บัญชาการ exactly which teams are active and how to address each one.
+When KP opens a phase, KP **must present a Phase Dispatch Report to Chief Manager Martin** before any team begins work. This tells Chief Manager Martin exactly which teams are active and how to address each one.
 
-**When to present:** Immediately after all phase briefings are written and ZCB-checked — before Commander ท่านผู้บัญชาการ sends any kickoff message.
+**When to present:** Immediately after all phase briefings are written and ZCB-checked — before Chief Manager Martin sends any kickoff message.
 
 **Format:**
 
 ```markdown
 ## Phase [N] — [Phase Name] — Dispatch Report
-**Issued by:** AM | **Date:** DD-MM-YYYY | **Project:** [Name]
+**Issued by:** KP | **Date:** DD-MM-YYYY | **Project:** [Name]
 
 ### Active Teams This Phase
 | Team | Conductor | Tickets | Start Status |
 |------|-----------|---------|--------------|
-| Monolith | AT | MON-01 to MON-XX | [DONE] All start immediately |
-| Syndicate | DR | SYN-01 to SYN-XX | [DONE] All start immediately |
-| Arcade | CP | ARC-01 to ARC-XX | [DONE] Scaffolding with mocks |
+| Monolith | AT | MON-01 to MON-XX | ✅ All start immediately |
+| Syndicate | DR | SYN-01 to SYN-XX | ✅ All start immediately |
+| Arcade | CP | ARC-01 to ARC-XX | ✅ Scaffolding with mocks |
 
 *(Teams not listed have no tickets this phase.)*
 
@@ -29,29 +29,31 @@ When AM opens a phase, AM **must present a Phase Dispatch Report to Commander �
 Send one message per team in a new session. Use the exact format below — copy and fill in:
 
 **Monolith:**
-> You are Team Monolith. Roster: `[PROJECT_ROOT]/.claude/Team Roster/2. Team_Monolith.md` — Briefing: `[PROJECT_ROOT]/Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Monolith_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Monolith. Agent: `.claude/agents/monolith.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Monolith_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 **Syndicate:**
-> You are Team Syndicate. Roster: `[PROJECT_ROOT]/.claude/Team Roster/3. Team_Syndicate.md` — Briefing: `[PROJECT_ROOT]/Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Syndicate_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Syndicate. Agent: `.claude/agents/syndicate.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Syndicate_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 **Arcade:**
-> You are Team Arcade. Roster: `[PROJECT_ROOT]/.claude/Team Roster/4. Team_Arcade.md` — Briefing: `[PROJECT_ROOT]/Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Arcade_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Arcade. Agent: `.claude/agents/arcade.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Arcade_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 ### ZCB Status
-All teams: [DONE] ZCB-clean — verified [date]
+All teams: ✅ ZCB-clean — verified [date]
 ```
 
+> **Note:** Replace `[PROJECT_ROOT]` with the actual project path. Find the correct path in `.claude/ProjectEnvironment.md → PROJECT_ROOT`.
+
 **Rules:**
-- AM presents this report in the RoundTable session that dispatches the phase
-- Commander ท่านผู้บัญชาการ should NOT send kickoff messages until AM has presented the Dispatch Report
-- Commander ท่านผู้บัญชาการ only messages teams that appear in the "Active Teams" table — idle teams are not contacted
-- The kickoff message format above is the official template — Commander ท่านผู้บัญชาการ can use it verbatim
+- KP presents this report in the RoundTable session that dispatches the phase
+- Chief Manager Martin should NOT send kickoff messages until KP has presented the Dispatch Report
+- Chief Manager Martin only messages teams that appear in the "Active Teams" table — idle teams are not contacted
+- The kickoff message format above is the official template — Chief Manager Martin can use it verbatim
 
 ---
 
 ## Briefing Mail Standard
 
-A **Briefing Mail** is the official dispatch document AM uses to assign a phase or ticket block to a sub-team. It lives inside the **receiving team's subfolder** within `01_Implementation Logs/[VERSION]/Phase [N]/` — alongside that team's tickets.
+A **Briefing Mail** is the official dispatch document KP uses to assign a phase or ticket block to a sub-team. It lives at the **Phase root level** within `01_Implementation Logs/[VERSION]/Phase [N]/`.
 
 **File naming:**
 ```
@@ -70,19 +72,13 @@ A **Briefing Mail** is the official dispatch document AM uses to assign a phase 
 01_Implementation Logs/[VERSION]/Phase [N]/[TeamName]_Phase[N]_Briefing.md
 ```
 
-**Full path example:**
-```
-Development/01_Implementation Logs/INDEV v1.0.0/Phase 1/Monolith_Phase1_Briefing.md
-Development/01_Implementation Logs/INDEV v1.0.0/Phase 1/Syndicate_Phase1_Briefing.md
-```
-
-**Note:** Briefings live at the Phase root level, NOT inside team subfolders. Team subfolders contain only ticket files. This keeps the briefing visible immediately when the phase folder is opened, regardless of how many tickets are inside the team subfolders.
+**Note:** Briefings live at the Phase root level, NOT inside team subfolders. Team subfolders contain only ticket files. This keeps the briefing visible immediately when the phase folder is opened.
 
 **Mandatory sections (in this order):**
 
 ```
 # Team [Name] — [Phase] Briefing
-Issued by: AM | Date: DD-MM-YYYY | Project: [Name] | Phase: [N] | Tickets: [list]
+Issued by: KP | Date: DD-MM-YYYY | Project: [Name] | Phase: [N] | Tickets: [list]
 
 ## 0. Pre-Work: Load Your Roster
   - Read CLAUDE.md
@@ -119,38 +115,36 @@ Issued by: AM | Date: DD-MM-YYYY | Project: [Name] | Phase: [N] | Tickets: [list
   - Explicit list of what this team must not modify
 
 ## 7. If You Hit a Blocker
-  - Stop and file a blocker in OverseerReport — do not workaround without AM sign-off
+  - Stop and file a blocker in OverseerReport — do not workaround without KP sign-off
 
-Footer: Issued by AM (Overseer) — DD-MM-YYYY
+Footer: Issued by KP (Overseer) — DD-MM-YYYY
 ```
 
 **Rules:**
 - One briefing file per team per phase (or per major dispatch if mid-phase)
-- Briefings are written by AM (Overseer) only
-- The briefing is the single source of truth for the team — if it contradicts a ticket, the briefing wins and AM must be notified to reconcile
+- Briefings are written by KP (Overseer) only
+- The briefing is the single source of truth for the team — if it contradicts a ticket, the briefing wins and KP must be notified to reconcile
 - Briefings are never deleted after dispatch — they form part of the project record
 
 ---
 
-## Team Kickoff Message Standard (Commander ท่านผู้บัญชาการ → Team)
+## Team Kickoff Message Standard (Chief Manager Martin → Team)
 
-The **Team Kickoff Message** is what Commander ท่านผู้บัญชาการ sends to a team session to start their work. It is a single message containing three things: team identity, roster path, and briefing path.
+The **Team Kickoff Message** is what Chief Manager Martin sends to a team session to start their work. It is a single message containing three things: team identity, roster path, and briefing path.
 
-**Official template (copy verbatim, fill in [N] and [PROJECT_ROOT]):**
+**Official template (copy verbatim, fill in [N]):**
 
 ```
 You are Team [Monolith / Syndicate / Arcade].
-Roster: [PROJECT_ROOT]/.claude/Team Roster/[2. Team_Monolith / 3. Team_Syndicate / 4. Team_Arcade].md
-Briefing: [PROJECT_ROOT]/Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/[Monolith / Syndicate / Arcade]_Phase[N]_Briefing.md
-Load your roster, read your briefing, and begin implementation.
+Agent: .claude/agents/[monolith / syndicate / arcade].md
+Briefing: Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/[Monolith / Syndicate / Arcade]_Phase[N]_Briefing.md
+Load your agent file, read your briefing, and begin implementation.
 ```
 
-> **Note:** Replace `[PROJECT_ROOT]` with the actual project path before pasting. Find the correct path in `.claude/ProjectEnvironment.md → PROJECT_ROOT`.
-
 **Rules:**
-- Commander ท่านผู้บัญชาการ sends one kickoff message per team in a **new, separate session** for each team
-- Commander ท่านผู้บัญชาการ only kicks off teams listed in the Phase Dispatch Report's "Active Teams" table
-- AM provides the filled-in kickoff messages in the Phase Dispatch Report — Commander ท่านผู้บัญชาการ copies them directly
+- Chief Manager Martin sends one kickoff message per team in a **new, separate session** for each team
+- Chief Manager Martin only kicks off teams listed in the Phase Dispatch Report's "Active Teams" table
+- KP provides the filled-in kickoff messages in the Phase Dispatch Report — Chief Manager Martin copies them directly
 - Do not add extra context or instructions to the kickoff message — the briefing contains everything the team needs
 
 ---
@@ -206,8 +200,8 @@ Examples: `MON-01_UIDSchemaAndStorage.md`, `SYN-02_RateLimiterMiddleware.md`
 | `[~]` | IN PROGRESS | Work has begun |
 | `[x]` | Complete | All criteria met, tests pass, OverseerReport filed |
 | `[!]` | BLOCKED | Cannot proceed — blocker filed in OverseerReport |
-| `[>]` | DEFERRED | Intentionally scheduled for a later phase — not forgotten, not pending. Always include target phase in the status field (e.g., `[>] Deferred — scheduled pre-Phase 5 open`) |
+| `[>]` | DEFERRED | Intentionally scheduled for a later phase — always include target phase in the status field (e.g., `[>] Deferred — scheduled pre-Phase 5 open`) |
 
 ---
 
-*Extracted from CLAUDE.md — Phase Dispatch, Briefing Mail, Kickoff Message, Ticket File Standards — 11-03-2026*
+*Adopted from ClaudeTemplate — 11-03-2026. Adapted for RoundTable: KP/Martin naming, Windows paths.*
