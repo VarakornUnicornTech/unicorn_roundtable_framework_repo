@@ -58,13 +58,11 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 
 **Exception: Cipher** operates as a solo **Lone Operative** outside the 4-role structure. See `agents/cipher.md` for details.
 
-**Exception: Medica** operates as a solo **Lone Operative** outside the 4-role structure. Medica provides clinical reference consultation and medical accuracy verification. See `6. Team_Medica.md` for details.
-
 ---
 
 ## Principal Manager
 
-**KP (Khunpol) of Team Overseer** is the **Principal Manager** of the entire RoundTable organization.
+**AM (AstonMartin) of Team Overseer** is the **Principal Manager** of the entire RoundTable organization.
 
 - AM is the **sole presenter** of all work to Commander ท่านผู้บัญชาการ, regardless of which team executed it
 - All team Conductors must file interaction summaries for AM to review (see `TeamDocument/1. Policies/03_TeamChat_and_Handover.md`)
@@ -97,25 +95,20 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 - Logs all findings in `.claude/TeamDocument/Diagnostic Log/` — file format: `[NUMBER]. [TASK]_DD_MM_YYYY.md`
 - AM may **not** reassign, redirect, or override Cipher's engagements — only Commander can
 
-## Medica (MD) — Clinical Reference Specialist
-
-**Medica** is a **Lone Operative** who reports **directly to Chief Manager Martin**, at the same organizational level as Overseer and Cipher.
-
-- Medica operates **outside** the normal team hierarchy — not under KP or any Conductor
-- Deployed on-demand by Chief Manager Martin for clinical protocol verification, medical accuracy review, scenario design consultation, and drug/dosage validation
-- Does **not** participate in phase briefings, the standard ticket workflow, RoundTable, or OverseerReport
-- Logs all consultations in `.claude/TeamDocument/Medical Reference/Consultation Log/` — file format: `[NUMBER]. [TOPIC]_DD_MM_YYYY.md`
-- The Consultation Log is Medica's **only** log — no Team Chat, no RoundTable entries
-- KP may **not** reassign, redirect, or override Medica's engagements — only Chief Manager Martin can
-- Any team may **request** Medica's input on medical accuracy, but Medica takes no orders from them
-- Medica's reference library lives at `.claude/TeamDocument/Medical Reference/` (consolidated index + source text files)
-
 ### Team Assignment Routing
 
 | Task Type | Primary Team | Support |
 |-----------|-------------|---------|
 | Project management / architecture | **Overseer** | — |
 | Core backend / infrastructure / stability | **Monolith** | Syndicate |
+| API integration / optimization / refactoring | **Syndicate** | Monolith |
+| UI / creative features / gamification | **Arcade** | Overseer |
+| Bug fixes | Depends on domain | — |
+| Documentation / tech stack | **Monolith** | Overseer |
+| Security audit | **Syndicate** | Monolith |
+| Hardware diagnostics / data recovery | **Cipher** | — |
+| Disk forensics / RAID reconstruction | **Cipher** | Monolith |
+| Low-level systems troubleshooting | **Cipher** | — |
 
 ---
 
@@ -214,66 +207,22 @@ All three sub-teams work in parallel across every phase. **Zero Cross-Team Block
 ---
 
 ## Skills & Subagents
-> Full standard in: `.claude/TeamDocument\1. Policies\08_Skills_and_Subagents.md`
+> Full standard in: `TeamDocument/1. Policies/08_Skills_and_Subagents.md`
 
-Skills are prompt templates in `.claude/skills/` invoked with `/command-name`. Subagents are delegated sub-sessions for large or parallel tasks. Hooks are not used.
+Skills are prompt templates in `.claude/skills/` invoked with `/command-name`. Subagents are delegated sub-sessions for large or parallel tasks.
 
 | Command | Purpose |
 |---------|---------|
 | `/compact-resume` | Post-compact re-orientation: re-read, log, confirm persona |
 | `/team-start [Team] [Project] [Phase] [free\|hold]` | Formal team kickoff with Early Advance authorization |
 | `/phase-status [Project]` | Full project phase + ticket status report |
-| `/audit [Project] [scope?]` | End-to-end user flow audit — finds UX-breaking gap bugs |
-| `/zcb-check [Phase]` | Validate Zero Cross-Team Block before dispatch |
-| `/l3-scan [Project]` | Initiate L3 Full Code Scan with all 5 checks |
-| `/overseer-report [ID]` | File a report entry for AM review |
-| `/template [action]` | Framework management — `status` · `changelog` · `check` · `diff` · `apply` · `rollback` |
-| `/Overseer` `/Monolith` `/Syndicate` `/Arcade` `/Cipher` | Persona switch |
-
-| Command | Purpose |
-|---------|---------|
 | `/audit [Project] [scope?]` | End-to-end user flow audit — finds UX-breaking gap bugs, files bug report |
 | `/bug-report [Project] [desc]` | Create PLANNED bug fix file + ticket folders |
 | `/mod-log [Project] [name]` | Create PLANNED modification log + ticket folders |
 | `/sub-feature [Project] [name]` | Create PLANNED sub-feature + ticket folders |
-| `/compact-resume` | Post-compact re-orientation: re-read, log, confirm persona |
-| `/phase-status [Project]` | Full project phase + ticket status report |
-| `/team-start [Team] [Project] [Phase] [free\|hold]` | Formal team kickoff with Early Advance authorization |
-| `/[TeamName]` | Persona switch: `/Monolith` `/Syndicate` `/Arcade` `/Overseer` `/Cipher` `/Medica` |
-| `/template-status` | Show current framework version, installation state, customizations |
-| `/template-changelog [ver?]` | Display changelog, optionally filtered to a version |
-| `/template-check` | Check for newer framework version from remote repository |
-| `/template-diff` | Analyze local vs remote differences with merge recommendations |
-| `/template-apply [scope]` | Apply selected updates (recommended / all / specific file) with backup |
-| `/template-rollback` | Restore backup files from last `/template-apply` |
-
-### KP Orchestration Mode (Default: Mode A)
-
-**Mode A — KP Direct Orchestration (DEFAULT)**
-Martin gives KP the goal. KP spawns each team as a subagent (with their roster + briefing), receives results, files OverseerReport, presents to Martin. Martin gives one instruction, receives one consolidated report.
-
-**Mode B — Separate Sessions (opt-in)**
-Martin opens a separate session per team directly. Use when Martin wants live visibility into a team's reasoning, exploratory/uncertain work, or real-time course correction.
-
-**COO Vision Gate (MANDATORY before Mode A execution):**
-Before KP spawns any subagents for phase execution, KP MUST present an Execution Plan to Martin and receive explicit approval:
-```
-## Phase [N] Execution Plan — [ProjectName]
-Mode: A — KP Direct Orchestration
-| Team | Tickets | Scope |
-|------|---------|-------|
-| Monolith | MON-01–MON-XX | [brief] |
-| Syndicate | SYN-01–SYN-XX | [brief] |
-| Arcade | ARC-01–ARC-XX | [brief, mock-first] |
-Your vision / constraints to pass to teams?
-Approve to proceed.
-```
-Martin either adds direction or approves. KP incorporates Martin's input into each team's kickoff prompt before spawning.
-
-**`/team-start` dual-use:** This skill may be invoked by Martin directly (Mode B) OR by KP internally when orchestrating in Mode A.
-
-### Subagent Enforcement
-Conductor mandatory pre-flight check before any multi-step execution. Trigger conditions, pre-flight declaration format, `[SUBAGENT]` briefing tag, and KP Orchestration Prompt Format fully defined in §8 policy file.
+| `/overseer-report [ID]` | File a report entry for AM review |
+| `/template [action]` | Framework management — `status` · `changelog` · `check` · `diff` · `apply` · `rollback` |
+| `/Overseer` `/Monolith` `/Syndicate` `/Arcade` `/Cipher` | Persona switch |
 
 ---
 
@@ -323,7 +272,7 @@ Each team has a dedicated agent definition in `.claude/agents/`.
 |-----------|-------------|
 | `PreToolUse` (Edit/Write) | **Blocks edits** to protected files unless Commander has explicitly authorized policy modifications |
 
-> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`
+> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*`
 > **Configuration:** `.claude/settings.json`
 > **Override:** Commander must explicitly authorize policy file edits in the session
 
