@@ -1,70 +1,40 @@
+---
+name: compact-resume
+description: Post-compact re-orientation. Re-reads CLAUDE.md and agent file, logs session resume entry, confirms persona. Run immediately after /compact completes.
+---
+
 # /compact-resume
 
-## Purpose
-Execute the mandatory post-compact re-orientation sequence: re-read policy and roster, log SESSION START, confirm persona — then respond.
-
-## Arguments
-None.
-
-## Help
-If `$ARGUMENTS` is `help` (i.e., invoked as `/compact-resume help`), print the following and STOP — do NOT execute any steps.
-
-```
-/compact-resume — Post-compact re-orientation sequence
-
-SYNTAX:
-  /compact-resume
-  /compact-resume help
-
-ARGUMENTS:
-  None.
-
-NOTES:
-  Run this immediately after any /compact or session resume.
-  Re-reads CLAUDE.md + Team Roster, logs SESSION START, verifies persona.
-
-EXAMPLES:
-  /compact-resume       Execute post-compact resume
-  /compact-resume help  Show this help text
-```
-
----
+You are performing a **post-compact re-orientation**. Execute all steps in order before responding to any other prompt.
 
 ## Steps
 
-1. Read `.claude/CLAUDE.md` in full.
+1. **Re-read CLAUDE.md:**
+   - Read `.claude/CLAUDE.md` in full.
 
-2. Identify the active team from context. If determinable, read the corresponding Team Roster file:
-   - Overseer → `.claude/TeamDocument\2. Team Roster\1. Team_Overseer.md`
-   - Monolith → `.claude/TeamDocument\2. Team Roster\2. Team_Monolith.md`
-   - Syndicate → `.claude/TeamDocument\2. Team Roster\3. Team_Syndicate.md`
-   - Arcade → `.claude/TeamDocument\2. Team Roster\4. Team_Arcade.md`
-   - Cipher → `.claude/TeamDocument\2. Team Roster\5. Team_Cipher.md`
-   - Medica → `.claude/TeamDocument\2. Team Roster\6. Team_Medica.md`
-   If team cannot be determined from context, HALT and ask Chief Manager Martin which team is active before proceeding.
+2. **Identify your team and re-read your agent file:**
+   - If your team is known from context, read `.claude/agents/[team].md`.
+   - If your team is NOT clear, **HALT** and ask Commander which team to load before proceeding.
 
-3. Get today's date in DD-MM-YYYY format.
+3. **Log Session Resume entry:**
+   - **AM (Overseer):** Open or append to today's RoundTable file `RoundTable/DD-MM-YYYY_RoundTable.md`. Write:
+     ```
+     ## Session [N] — Compact Resume
+     **Date:** DD-MM-YYYY
+     **Participants:** AM [+ others as needed]
 
-4. Open (or append to) the appropriate daily log file:
-   - If Overseer: `[Project Root]/RoundTable\[DD-MM-YYYY]_RoundTable.md`
-   - If sub-team: `.claude/TeamDocument\3. Team Chat\[N. TeamName]\[DD-MM-YYYY]_[TeamName].md`
+     ### AM (Overseer — Conductor)
+     "Session resumed after /compact. CLAUDE.md and agent file re-read. Persona confirmed. Awaiting Commander direction."
+     ```
+   - **Sub-teams:** Open or append to today's Team Chat log. Write a Session Resumed entry in team voice.
 
-5. Determine the next session number by counting existing `## Session` entries in that file.
+4. **Confirm persona:**
+   - State your team name, code names (AM/MT/AS or AT/SC/EN/PF etc.), and confirm you have re-adopted team voice.
 
-6. Write a SESSION START entry:
-   ```markdown
-   ## Session [N] — Post-Compact Resume
-   **Date:** DD-MM-YYYY
-   **Participants:** [active member codes]
+5. **Report ready:**
+   - Output: `[Team] re-oriented. Session logged. Ready for Commander direction.`
 
-   ### [CONDUCTOR_CODE] ([Team] — Conductor)
-   "Post-compact resume complete. CLAUDE.md and Team Roster re-read. Persona verified. Ready to continue."
-
-   ### Actions Taken
-   - /compact-resume executed ✅
-   ```
-
-7. Confirm persona is correct per Roster, then respond to any pending context or await Chief Manager Martin's next instruction.
-
-## Output
-Confirmation that resume sequence is complete and persona is verified.
+## Notes
+- Do NOT skip the log step — logging before responding is non-negotiable
+- Do NOT begin any work tasks until re-orientation is complete
+- If the RoundTable or Team Chat file does not exist for today, create it first

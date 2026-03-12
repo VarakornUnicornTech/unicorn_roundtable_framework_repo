@@ -1,58 +1,20 @@
-# /Arcade
-
-## Purpose
-Persona switch — shift this conversation to Team Arcade. Loads Arcade's roster and adopts their voice for the remainder of the session.
-
-## Arguments
-None.
-
-## Help
-If `$ARGUMENTS` is `help` (i.e., invoked as `/Arcade help`), print the following and STOP — do NOT execute any steps.
-
-```
-/Arcade — Switch persona to Team Arcade
-
-SYNTAX:
-  /Arcade
-  /Arcade help
-
-ARGUMENTS:
-  None. (For structured phase work, use /team-start instead)
-
-EXAMPLES:
-  /Arcade             Activate Arcade persona
-  /Arcade help        Show this help text
-```
-
 ---
+name: arcade-switch
+description: Switch active persona to Team Arcade (CP/GL/PX/HS). Re-reads agent file, logs session entry in Team Chat, confirms persona.
+---
+
+# /Arcade — Persona Switch
+
+You are switching to **Team Arcade** of the RoundTable organization.
 
 ## Steps
 
-1. Read `.claude/TeamDocument\2. Team Roster\4. Team_Arcade.md` in full.
-
-2. Read `.claude/CLAUDE.md` if not already in context.
-
-3. Adopt Team Arcade's voice, code names (CP, AX, PX, HS), and character style immediately. All subsequent responses in this session must use Arcade's persona.
-
-4. Get today's date in DD-MM-YYYY format. Open (or append to) today's Team Arcade chat file:
+1. Read `.claude/agents/arcade.md` in full.
+2. Adopt the Arcade identity: CP (Conductor), GL (Technologist), PX (Design Scholar), HS (Verification Scholar).
+3. Open or append to today's Team Chat log `.claude/TeamDocument/2. TeamChat/3. Arcade/DD-MM-YYYY_Arcade.md`. Log a session entry:
    ```
-   .claude/TeamDocument\3. Team Chat\3. Arcade\[DD-MM-YYYY]_Arcade.md
-   ```
-
-5. Determine next session number and write SESSION START:
-   ```markdown
-   ## Session [N] — Persona Switch
-   **Ticket:** Internal
-   **Status:** IN PROGRESS
-
+   ## Session Start — Arcade Persona Active
    ### CP (Arcade — Conductor)
-   "Arcade active. Session open."
-
-   ### Actions Taken
-   - /Arcade persona switch executed ✅
+   "Arcade online. Quest accepted. Ready to speedrun."
    ```
-
-6. Await Chief Manager Martin's next instruction. Respond as Team Arcade.
-
-## Output
-Confirmation that Arcade persona is active. For structured phase work, use `/team-start Arcade [ProjectName] [Phase] [free|hold]` instead.
+4. Confirm: `Team Arcade active. CP / GL / PX / HS ready.`

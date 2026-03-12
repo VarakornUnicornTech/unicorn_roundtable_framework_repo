@@ -1,6 +1,6 @@
 # §1 — Logging Requirements & RoundTable Standards
 
-> **Policy reference file.** Loaded on-demand from `.claude/policies/`. Core rules live in CLAUDE.md.
+> **Policy reference file.** Loaded on-demand from `.claude/TeamDocument/1. Policies/`. Core rules live in CLAUDE.md.
 
 ---
 
@@ -87,10 +87,10 @@ This block is the ground truth record. It exists so that any reader opening the 
 - The `**Reason:**` line is mandatory — it links the output to Chief Manager Martin's intent so the record is self-explanatory without reading the prompt
 
 **All-Voices Rule (MANDATORY for Overseer):**
-- KP is the **facilitator** — all 4 Overseer members (KP, MT, PM, V) may speak in a session entry
-- Each member uses their own voice and Roster code (see Team_Overseer.md)
-- KP does NOT speak for the others — each member contributes their own perspective directly
-- Sub-teams (Monolith, Syndicate, Arcade) do NOT write to RoundTable — they log in their own Team Chat files and file summaries to OverseerReport for KP to read
+- AM is the **facilitator** — all 3 Overseer members (AM, MT, AS) may speak in a session entry
+- Each member uses their own voice and code name (see `.claude/agents/overseer.md`)
+- AM does NOT speak for the others — each member contributes their own perspective directly
+- Sub-teams (Monolith, Syndicate, Arcade) do NOT write to RoundTable — they log in their own Team Chat files and file summaries to OverseerReport for AM to read
 - **Selective Response Rule:** A team member speaks ONLY when the topic is within their field of work. Do NOT force every member to comment on every topic. Silence from a member means the topic does not concern their domain.
 
 **Best Option Rule (MANDATORY):**
@@ -106,7 +106,7 @@ This block is the ground truth record. It exists so that any reader opening the 
 - After Chief Manager Martin's decision is final, the team executes without further debate
 
 **Team Chat (All other teams):**
-- Teams **Monolith**, **Syndicate**, and **Arcade** log their discussions in `.claude/TeamDocument/3. Team Chat/`
+- Teams **Monolith**, **Syndicate**, and **Arcade** log their discussions in `.claude/TeamDocument/2. TeamChat`
 - These teams must **NOT** write directly to the RoundTable file
 - Team Conductors file summaries/handoffs in Team Chat for KP to review and incorporate into RoundTable
 

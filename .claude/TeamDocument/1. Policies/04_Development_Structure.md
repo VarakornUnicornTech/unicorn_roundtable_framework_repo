@@ -1,34 +1,18 @@
 # §4 — Development Structure, Project Organization & Planning Workflow
 
-> **Policy reference file.** Loaded on-demand from `.claude/policies/`. Core rules live in CLAUDE.md.
+> **Policy reference file.** Loaded on-demand from `.claude/TeamDocument/1. Policies/`. Core rules live in CLAUDE.md.
 
 ---
 
 ## Project Organization
 
 ```
-[Project Root]/
 ├── .claude/
-│   ├── CLAUDE.md                        # Core policy file (slim)
-│   ├── ProjectEnvironment.md            # Active project registry — mode, root paths, source paths
-│   ├── TeamDocument/                    # All team-facing documents (nested structure)
-│   │   ├── 1. Policies/                # Detailed policy reference files (loaded on-demand)
-│   │   │   ├── 01_Logging_and_RoundTable.md
-│   │   │   ├── 02_Ticket_and_Briefing.md
-│   │   │   ├── 03_TeamChat_and_Handover.md
-│   │   │   ├── 04_Development_Structure.md
-│   │   │   ├── 05_PreExisting_Codebase.md
-│   │   │   ├── 06_Debugging_Protocol.md
-│   │   │   ├── 07_Parallel_Execution.md
-│   │   │   └── 08_Skills_and_Subagents.md
-│   │   ├── 2. Team Roster/            # Team definitions
-│   │   │   ├── 1. Team_Overseer.md
-│   │   │   ├── 2. Team_Monolith.md
-│   │   │   ├── 3. Team_Syndicate.md
-│   │   │   ├── 4. Team_Arcade.md
-│   │   │   ├── 5. Team_Cipher.md
-│   │   │   └── 6. Team_Medica.md
-│   │   ├── 3. Team Chat/              # Inter/intra team logs
+│   ├── CLAUDE.md                        # Core policy file
+│   ├── ProjectEnvironment.md            # Project path config, mode, source registry — fill on setup
+│   ├── TeamDocument/
+│   │   ├── 1. Policies/                 # Detailed policy reference files (loaded on-demand)
+│   │   ├── 2. TeamChat/                 # Inter/intra team logs
 │   │   │   ├── 1. Monolith/
 │   │   │   │   ├── DD-MM-YYYY_Monolith.md
 │   │   │   │   └── HandOver/
@@ -40,16 +24,8 @@
 │   │   │   │   └── HandOver/
 │   │   │   └── 4. OverseerReport/
 │   │   │       └── DD-MM-YYYY_OverseerReport.md
-│   │   ├── Diagnostic Log/            # Cipher engagement records
-│   │   │   └── [NUMBER]. [TASK]_DD_MM_YYYY.md
-│   │   └── Medical Reference/         # Medica's knowledge base and consultation records
-│   │       ├── AeroMedica_Medical_Reference_Index.md
-│   │       ├── txt/                   # Source reference texts
-│   │       └── Consultation Log/
-│   │           └── [NUMBER]. [TOPIC]_DD_MM_YYYY.md
-│   ├── skills/                         # Custom slash commands
-│   ├── agents/                         # Team subagent definitions
-│   └── settings.json                   # Permissions and hooks
+│   │   └── Diagnostic Log/             # Cipher engagement records
+│   │       └── [NUMBER]. [TASK]_DD_MM_YYYY.md
 ├── RoundTable/
 │   ├── _Index.md                        # Volume navigation index
 │   └── DD-MM-YYYY_RoundTable.md         # Daily session logs (with Volume system)
@@ -130,6 +106,14 @@ Development/
     ├── Main TechStack Logic.md
     └── PreExisting TechStack/
         └── [ProjectName].md
+```
+
+Source code location (Centralized):
+```
+├── .claude/
+├── Development/
+├── RoundTable/
+└── [src-folder]/                         # Source code lives here, inside the same root
 ```
 
 ### Decentralized Mode

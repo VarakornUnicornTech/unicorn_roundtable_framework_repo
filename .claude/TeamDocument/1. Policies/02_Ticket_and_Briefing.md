@@ -1,6 +1,6 @@
 # §2 — Ticket, Briefing & Phase Dispatch Standards
 
-> **Policy reference file.** Loaded on-demand from `.claude/policies/`. Core rules live in CLAUDE.md.
+> **Policy reference file.** Loaded on-demand from `.claude/TeamDocument/1. Policies/`. Core rules live in CLAUDE.md.
 
 ---
 
@@ -29,13 +29,13 @@ When KP opens a phase, KP **must present a Phase Dispatch Report to Chief Manage
 Send one message per team in a new session. Use the exact format below — copy and fill in:
 
 **Monolith:**
-> You are Team Monolith. Roster: `[PROJECT_ROOT]\.claude\Team Roster\2. Team_Monolith.md` — Briefing: `[PROJECT_ROOT]\Development\01_Implementation Logs\INDEV v1.0.0\Phase [N]\Monolith_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Monolith. Agent: `.claude/agents/monolith.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Monolith_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 **Syndicate:**
-> You are Team Syndicate. Roster: `[PROJECT_ROOT]\.claude\Team Roster\3. Team_Syndicate.md` — Briefing: `[PROJECT_ROOT]\Development\01_Implementation Logs\INDEV v1.0.0\Phase [N]\Syndicate_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Syndicate. Agent: `.claude/agents/syndicate.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Syndicate_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 **Arcade:**
-> You are Team Arcade. Roster: `[PROJECT_ROOT]\.claude\Team Roster\4. Team_Arcade.md` — Briefing: `[PROJECT_ROOT]\Development\01_Implementation Logs\INDEV v1.0.0\Phase [N]\Arcade_Phase[N]_Briefing.md` — Load your roster, read your briefing, and begin implementation.
+> You are Team Arcade. Agent: `.claude/agents/arcade.md` — Briefing: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/Arcade_Phase[N]_Briefing.md` — Load your agent file, read your briefing, and begin implementation.
 
 ### ZCB Status
 All teams: ✅ ZCB-clean — verified [date]
@@ -132,16 +132,14 @@ Footer: Issued by KP (Overseer) — DD-MM-YYYY
 
 The **Team Kickoff Message** is what Chief Manager Martin sends to a team session to start their work. It is a single message containing three things: team identity, roster path, and briefing path.
 
-**Official template (copy verbatim, fill in [N] and [PROJECT_ROOT]):**
+**Official template (copy verbatim, fill in [N]):**
 
 ```
 You are Team [Monolith / Syndicate / Arcade].
-Roster: [PROJECT_ROOT]\.claude\Team Roster\[2. Team_Monolith / 3. Team_Syndicate / 4. Team_Arcade].md
-Briefing: [PROJECT_ROOT]\Development\01_Implementation Logs\INDEV v1.0.0\Phase [N]\[Monolith / Syndicate / Arcade]_Phase[N]_Briefing.md
-Load your roster, read your briefing, and begin implementation.
+Agent: .claude/agents/[monolith / syndicate / arcade].md
+Briefing: Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/[Monolith / Syndicate / Arcade]_Phase[N]_Briefing.md
+Load your agent file, read your briefing, and begin implementation.
 ```
-
-> **Note:** Replace `[PROJECT_ROOT]` with the actual project path before pasting. Find the correct path in `.claude/ProjectEnvironment.md → PROJECT_ROOT`.
 
 **Rules:**
 - Chief Manager Martin sends one kickoff message per team in a **new, separate session** for each team

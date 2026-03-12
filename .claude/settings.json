@@ -9,5 +9,18 @@
     "additionalDirectories": [
       "*"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "The user is about to modify a file. Check if the file path contains '.claude/CLAUDE.md' or '.claude/TeamDocument/1. Policies/'. If it matches any of these PROTECTED paths, respond 'yes' ONLY if the user has explicitly authorized policy modifications in this session. Otherwise respond 'no' to block. If the file is NOT protected, respond 'yes' to allow."
+          }
+        ]
+      }
+    ]
   }
 }
