@@ -12,8 +12,9 @@ Skills are prompt templates in `.claude/skills/[name]/SKILL.md` invoked with `/n
 | `/team-start` | `skills/team-start/SKILL.md` | Formal team kickoff |
 | `/phase-status` | `skills/phase-status/SKILL.md` | Phase + ticket status report |
 | `/audit` | `skills/audit/SKILL.md` | End-to-end user flow audit |
-| `/zcb-check` | `skills/zcb-check/SKILL.md` | Zero Cross-Team Block validation |
-| `/l3-scan` | `skills/l3-scan/SKILL.md` | L3 full code scan |
+| `/bug-report` | `skills/bug-report/SKILL.md` | Create PLANNED bug fix file + ticket folders |
+| `/mod-log` | `skills/mod-log/SKILL.md` | Create PLANNED modification log + ticket folders |
+| `/sub-feature` | `skills/sub-feature/SKILL.md` | Create PLANNED sub-feature + ticket folders |
 | `/overseer-report` | `skills/overseer-report/SKILL.md` | File OverseerReport entry |
 | `/template` | `skills/template/SKILL.md` | Framework version management |
 | `/Overseer` | `skills/Overseer/SKILL.md` | Persona switch to Overseer |
