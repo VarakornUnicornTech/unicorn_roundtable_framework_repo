@@ -221,8 +221,9 @@ All three sub-teams (Monolith, Syndicate, Arcade) work in parallel across every 
 | §6 | Debugging Protocol, Instrument-First Rule, INDEV Persistent Probes, Cross-Layer Trace, Rewrite Threshold, Gap Bug Detection | `TeamDocument/1. Policies/06_Debugging_Protocol.md` |
 | §7 | Parallel Execution, ZCB Guarantee, Ticket Ownership, Commander Sync Gate | `TeamDocument/1. Policies/07_Parallel_Execution.md` |
 | §8 | Skills (slash commands), Subagent standard, Trigger Conditions, Pre-Flight Declaration | `TeamDocument/1. Policies/08_Skills_and_Subagents.md` |
+| §9 | Multi-Session Parallel Work, one-session-per-project, project-prefixed logging | `TeamDocument/1. Policies/09_Multi_Session_Parallel_Work.md` |
 
-> **Loading rule:** Policy files are read on-demand. Teams do NOT need to read all 8 at session start — CLAUDE.md is sufficient for initialization. Read the specific policy when needed.
+> **Loading rule:** Policy files are read on-demand. Teams do NOT need to read all 9 at session start — CLAUDE.md is sufficient for initialization. Read the specific policy when needed.
 
 ---
 
@@ -241,6 +242,9 @@ Skills are prompt templates in `.claude/skills/` invoked with `/command-name`. S
 | `/mod-log [Project] [name]` | Create PLANNED modification log + ticket folders |
 | `/sub-feature [Project] [name]` | Create PLANNED sub-feature + ticket folders |
 | `/overseer-report [ID]` | File a report entry for AM review |
+| `/git commit [branch?]` | Governed commit — rebase, 2-pass review, ticket gate, commit |
+| `/git pr [branch?]` | Governed pull request — rebase, review, test, PR with governance gates |
+| `/git lookback [period?]` | Retrospective — rebase-aware git + RoundTable session metrics |
 | `/template [action]` | Framework management — `status` · `changelog` · `check` · `diff` · `apply` · `rollback` |
 | `/Overseer` `/Monolith` `/Syndicate` `/Arcade` `/Cipher` | Persona switch |
 
@@ -286,16 +290,35 @@ Each team has a dedicated agent definition in `.claude/agents/`.
 
 ---
 
+## Rules (Path-Scoped Enforcement)
+
+Compressed policy rules in `.claude/rules/` — loaded automatically based on file context:
+
+| Rule File | Scope | What It Enforces |
+|-----------|-------|-----------------|
+| `governance.md` | All files | Plan-before-code, no-code-before-ticket, phase gates, ZCB |
+| `logging.md` | All files | Session logging, RoundTable format, rotation, handover |
+| `debugging.md` | `*.ts, *.js, *.py, *.go, *.rs, *.java` | Instrument-first, probe standards, cross-layer trace |
+| `testing.md` | `*.test.*, *.spec.*, tests/, test/` | Unit/integration tests, regression gates, living docs |
+| `codebase-scanning.md` | All files | L1/L2/L3 tiered scan protocol |
+| `parallel-execution.md` | All files | ZCB guarantee, ticket ownership, multi-session rules |
+
 ## Hooks (Automated Enforcement)
 
 | Hook Event | What It Does |
 |-----------|-------------|
-| `PreToolUse` (Edit/Write) | **Blocks edits** to protected files unless Commander has explicitly authorized policy modifications |
+| `SessionStart` | Confirms RoundTable governance framework is active |
+| `PreToolUse` (Edit/Write) | Checks for active ticket before allowing code edits (No-Code-Before-Ticket) |
+| `PostToolUse` (Edit/Write) | Logs file changes to session audit trail |
 
-> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*`
-> **Configuration:** `.claude/settings.json`
-> **Override:** Commander must explicitly authorize policy file edits in the session
+> **Configuration:** `hooks/hooks.json` + `hooks/scripts/`
+> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*` (via `settings.json`)
+
+## Playwright MCP (Browser Automation)
+
+Verification Scholars can use Playwright for UX Smoke Test Gates and User Journey Walkthroughs.
+Configuration: `.mcp.json` at project root. Tools: `goto`, `click`, `fill`, `screenshot`, `snapshot`.
 
 ---
 
-*Last updated: 13-03-2026*
+*Last updated: 14-03-2026*

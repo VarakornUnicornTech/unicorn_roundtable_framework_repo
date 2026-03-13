@@ -1,11 +1,11 @@
 {
   "name": "roundtable-framework",
-  "version": "1.3.1",
-  "description": "RoundTable Framework for Claude Code — Multi-team AI governance template",
+  "version": "2.0.0",
+  "description": "RoundTable Framework for Claude Code — Multi-team AI governance with plugin support",
   "author": "Unicorn",
   "license": "MIT",
-  "released": "2026-03-13",
-  "notes": "v1.3.1 — Added No-Code-Before-Ticket Rule to §4. Conductor enforcement duty: no code change until Development folder ticket exists. Covers all scenarios (live bugs, approved features, quick fixes, urgent issues). No exceptions.",
+  "released": "2026-03-14",
+  "notes": "v2.0.0 — Major release. Plugin manifest, unified /git skill (commit, pr, lookback) with common rebase + 2-pass review baseline, 6 path-scoped rule files, 3 governance hooks, Playwright MCP. Rules compress 1,871 lines of policy into ~300 lines of context-efficient enforcement.",
   "file_hashes": {
     ".claude/CLAUDE.md": "f69ac60227108369a9b21b08955b786133b61244aedf8deb887a20a075a689e8",
     ".claude/TeamDocument/1. Policies/01_Logging_and_RoundTable.md": "68abd6c736508b857567680debdad35b7e78a762896007c727db630b76c73070",

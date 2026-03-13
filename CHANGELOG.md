@@ -5,6 +5,30 @@ All notable changes to RoundTable Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] — 2026-03-14
+
+### Added
+- **Plugin manifest** (`plugin.json`) — enables future marketplace distribution
+- **Unified `/git` skill** with 3 sub-commands: `commit` (governed commit), `pr` (governed pull request), `lookback` (retrospective) — all share a common rebase + 2-pass diff review baseline. Includes `checklists/` for critical, informational, and suppression patterns
+- **6 path-scoped rule files** (`.claude/rules/`): governance, logging, debugging, testing, codebase-scanning, parallel-execution — compressed from 1,871 lines of policy into ~300 lines
+- **3 governance hooks** (`hooks/`): check-ticket-exists (PreToolUse), log-file-change (PostToolUse), verify-tests-exist
+- **Playwright MCP** (`.mcp.json`) — browser automation for UX Smoke Test Gates
+- §9 added to CLAUDE.md Policy Reference Index
+
+### Changed
+- `CLAUDE.md` — added new skills, Rules section, expanded Hooks, Playwright MCP section
+- `README.md` — complete rewrite with comparison table, progressive disclosure, full references
+- Version bumped to 2.0.0
+
+---
+
+## [1.4.0] — 2026-03-13
+
+### Added
+- §9 Multi-Session Parallel Work policy
+
+---
+
 ## [1.3.1] — 2026-03-13
 
 ### Added
@@ -14,6 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Conductor enforcement duty with violation logging requirement
   - Commander override clause: only Commander can waive this rule for a specific change
   - Origin: real-world deployment where live session momentum caused repeated §4 violations
+
+---
 
 ---
 
