@@ -5,6 +5,18 @@ All notable changes to RoundTable Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] — 2026-03-13
+
+### Added
+- `MIGRATION.md` — Step-by-step migration guide for existing users upgrading from v1.x
+- Restored Team Assignment Routing rows: Cloud infrastructure, Database schema/migrations, Database query optimization
+
+### Changed
+- Version bumped to 1.3.0 (breaking path changes — see MIGRATION.md)
+- `template-version.json` updated with v1.3.0 metadata and release date
+
+---
+
 ## [1.2.1] — 2026-03-12
 
 ### Fixed

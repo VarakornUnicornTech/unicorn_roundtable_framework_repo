@@ -101,6 +101,9 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 |-----------|-------------|---------|
 | Project management / architecture | **Overseer** | — |
 | Core backend / infrastructure / stability | **Monolith** | Syndicate |
+| Cloud infrastructure / deployment / provisioning (Azure, GCP, AWS) | **Monolith** | Syndicate |
+| Database schema / migrations | **Monolith** | — |
+| Database query optimization / tuning | **Syndicate** | Monolith |
 | API integration / optimization / refactoring | **Syndicate** | Monolith |
 | UI / creative features / gamification | **Arcade** | Overseer |
 | Bug fixes | Depends on domain | — |
