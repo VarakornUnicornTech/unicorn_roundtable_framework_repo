@@ -115,13 +115,13 @@ The 6 split template commands (`/template-status`, `/template-changelog`, `/temp
 | Old | New |
 |-----|-----|
 | Team Roster files | Agent files (`agents/*.md`) |
-| Chief Manager Martin | Commander ท่านผู้บัญชาการ |
+| Legacy default authority title | Commander ท่านผู้บัญชาการ |
 | KP (Khunpol) — Conductor | AM (AstonMartin) — Conductor |
 | PM (Palmy) — Design Scholar | AS (AidenStarfall) — Design & Verification Scholar |
 | V (View) — Verification Scholar | *(merged into AS role)* |
 | 4-member Overseer | 3-member Overseer (AM, MT, AS) |
 
-**Action:** If you have local customizations that reference the old names (KP, PM, V, Chief Manager Martin), update them to the new names. If you use custom names in your local instance, ensure your `agents/overseer.md` file reflects your naming.
+**Action:** If you have local customizations that reference the old names (KP, PM, V, or the legacy authority title), update them to the new names. If you use custom names in your local instance, ensure your `agents/overseer.md` file reflects your naming.
 
 ---
 
