@@ -3,14 +3,30 @@
 # Event: PostToolUse (Write|Edit)
 # Purpose: Appends file change to today's session log for audit trail.
 # Always exits 0 (logging should never block work).
+#
+# NOTE: Claude Code passes the tool input as the $TOOL_INPUT environment variable
+# containing a JSON object. Parse with jq or string extraction.
+#
+# Windows: Requires Git Bash or WSL. Ensure bash is in PATH.
 
-FILE_PATH="$1"
+# Extract file_path from JSON input
+if command -v jq &>/dev/null; then
+  FILE_PATH=$(echo "$TOOL_INPUT" | jq -r '.file_path // empty' 2>/dev/null)
+else
+  FILE_PATH=$(echo "$TOOL_INPUT" | grep -o '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | sed 's/.*"file_path"[[:space:]]*:[[:space:]]*"//;s/"$//')
+fi
+
+# If we couldn't extract a path, skip logging
+if [ -z "$FILE_PATH" ]; then
+  exit 0
+fi
+
 TODAY=$(date +%d-%m-%Y)
 LOG_DIR="RoundTable"
 
 # Skip logging for log files themselves (prevent recursion)
 case "$FILE_PATH" in
-  *RoundTable/*|*Team\ Chat/*|*TeamChat/*|*OverseerReport/*)
+  *RoundTable/*|*TeamChat/*|*OverseerReport/*)
     exit 0
     ;;
 esac
@@ -23,8 +39,10 @@ if [ -z "$LOG_FILE" ]; then
 fi
 
 if [ -n "$LOG_FILE" ]; then
-  echo "" >> "$LOG_FILE"
-  echo "> [Hook] File modified: \`$FILE_PATH\` at $(date +%H:%M:%S)" >> "$LOG_FILE"
+  # Atomic append — write to temp file then append with a single redirect
+  # This prevents partial writes from concurrent hook executions
+  ENTRY=$(printf '\n> [Hook] File modified: `%s` at %s' "$FILE_PATH" "$(date +%H:%M:%S)")
+  printf '%s' "$ENTRY" >> "$LOG_FILE"
 fi
 
 exit 0

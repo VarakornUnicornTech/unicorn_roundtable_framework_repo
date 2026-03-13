@@ -312,8 +312,9 @@ Policy rules in `.claude/rules/` — loaded automatically based on file context.
 | `PreToolUse` (Edit/Write) | Checks for active ticket before allowing code edits (No-Code-Before-Ticket) |
 | `PostToolUse` (Edit/Write) | Logs file changes to session audit trail |
 
-> **Configuration:** `hooks/hooks.json` + `hooks/scripts/`
-> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*` (via `settings.json`)
+> **Configuration:** `.claude/settings.json` (hooks section) + `hooks/scripts/`
+> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*` (prompt hook in `settings.json`)
+> **Note:** Hooks MUST be defined in `.claude/settings.json` under the `"hooks"` key. Claude Code does NOT read `hooks/hooks.json`.
 
 ## Playwright MCP (Browser Automation)
 

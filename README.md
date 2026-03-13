@@ -147,11 +147,16 @@ Policy rules in `.claude/rules/` load automatically based on file context:
 
 ## Hooks (Automated Enforcement)
 
+Hooks are defined in `.claude/settings.json` under the `"hooks"` key. Scripts live in `hooks/scripts/`.
+
 | Hook | Event | What It Does |
 |------|-------|-------------|
+| `SessionStart` | Session start | Confirms RoundTable governance framework is active |
 | `check-ticket-exists` | PreToolUse (Edit/Write) | Warns if no ticket exists before code edits |
 | `log-file-change` | PostToolUse (Edit/Write) | Logs file changes to session audit trail |
-| `verify-tests-exist` | Task completion | Warns if implementation files changed without tests |
+| Protected files | PreToolUse (Edit/Write) | Prompt hook — blocks edits to CLAUDE.md, policies, agents without authorization |
+
+> **Windows note:** Hook scripts require Git Bash or WSL. Ensure `bash` and `jq` are available in your PATH. Scripts use `#!/usr/bin/env bash` shebangs and Unix path separators.
 
 ## Playwright MCP (Browser Automation)
 
@@ -167,7 +172,7 @@ your-project/
 ├── .claude/
 │   ├── CLAUDE.md                # Core policy (entry point)
 │   ├── ProjectEnvironment.md    # Project registry
-│   ├── settings.json            # Permissions + protected file hooks
+│   ├── settings.json            # Permissions + hooks + protected file rules
 │   ├── agents/                  # 5 team agent definitions
 │   ├── rules/                   # 7 path-scoped rule files
 │   ├── skills/                  # 21 slash command skills
@@ -178,9 +183,8 @@ your-project/
 │   └── TeamDocument/
 │       ├── 1. Policies/         # 9 detailed policy files
 │       └── 2. TeamChat/         # Team communication logs
-├── hooks/                       # Governance hook scripts
-│   ├── hooks.json
-│   └── scripts/
+├── hooks/                       # Hook scripts (config in .claude/settings.json)
+│   └── scripts/                 # check-ticket-exists.sh, log-file-change.sh
 ├── .mcp.json                    # Playwright browser automation
 ├── plugin.json                  # Plugin manifest
 └── RoundTable/                  # Session logs (created at runtime)

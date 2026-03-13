@@ -4,15 +4,32 @@
 # Purpose: Enforces No-Code-Before-Ticket rule.
 # Checks that a ticket file exists in Development/ before allowing code edits.
 # Exit 0 = allow, Exit 2 = block
+#
+# NOTE: Claude Code passes the tool input as the $TOOL_INPUT environment variable
+# containing a JSON object (e.g., {"file_path": "/path/to/file", ...}).
+# Parse with jq or string extraction — do NOT treat as a plain file path.
+#
+# Windows: Requires Git Bash or WSL. Ensure bash and jq are in PATH.
 
-FILE_PATH="$1"
+# Extract file_path from JSON input
+if command -v jq &>/dev/null; then
+  FILE_PATH=$(echo "$TOOL_INPUT" | jq -r '.file_path // empty' 2>/dev/null)
+else
+  # Fallback: extract file_path with grep/sed if jq not available
+  FILE_PATH=$(echo "$TOOL_INPUT" | grep -o '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | sed 's/.*"file_path"[[:space:]]*:[[:space:]]*"//;s/"$//')
+fi
+
+# If we couldn't extract a path, allow (don't block on parse failure)
+if [ -z "$FILE_PATH" ]; then
+  exit 0
+fi
 
 # Skip non-source files (policies, docs, logs, configs, plans)
 case "$FILE_PATH" in
   *.md|*.json|*.yml|*.yaml|*.txt|*.gitkeep|*.gitignore)
     exit 0
     ;;
-  *Development/*|*RoundTable/*|*Team\ Chat/*|*TeamChat/*|*TeamDocument/*|*.claude/*)
+  *Development/*|*RoundTable/*|*TeamChat/*|*TeamDocument/*|*.claude/*)
     exit 0
     ;;
 esac
