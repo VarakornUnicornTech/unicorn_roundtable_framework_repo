@@ -37,6 +37,19 @@ Skills are reusable prompt templates stored in `.claude/skills/[name]/SKILL.md`.
 - Skills must log to the appropriate file (RoundTable for Overseer, Team Chat for sub-teams) as part of their execution.
 - Skills never skip the Planning-First Workflow — skills that create plan files still present to Commander ท่านผู้บัญชาการ before implementing anything.
 
+### Ground Truth Rule (MANDATORY — all skills)
+**When a skill reads project files (tickets, briefings, configs, source code) to extract data, it MUST use the Read tool or Glob tool to open the actual file from disk.** Never use information from conversation context, prior messages, or AI memory as a substitute for reading the file.
+
+This rule exists because the AI may have discussed tickets, briefings, or file contents earlier in the conversation. That context may be outdated, incomplete, or refer to files that were never actually created. The file on disk is the single source of truth.
+
+Specific prohibitions:
+- Do NOT report a ticket's status from memory — open the ticket file and read the `**Status:**` line.
+- Do NOT list tickets that "should exist" based on planning discussions — list only tickets found on disk via Glob.
+- Do NOT fill in briefing details from conversation — read the briefing file.
+- If a file does not exist on disk, it does not exist. Report it as missing rather than fabricating its contents.
+
+**Violation produces false reports — a critical failure equivalent to Silent Failure.**
+
 ---
 
 ## Skill Catalogue
