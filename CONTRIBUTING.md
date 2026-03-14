@@ -239,6 +239,7 @@ RoundTable Framework welcomes contributions from AI agents. See [docs/AI_AGENTS.
 
 ## Community
 
+- **Discord:** [Join our community](https://discord.gg/SwYzZjru) — chat, ask questions, share your setup
 - **Questions:** Use [GitHub Discussions](https://github.com/VarakornUnicornTech/UniOpsQC/discussions)
 - **Bugs:** Use [Issues](https://github.com/VarakornUnicornTech/UniOpsQC/issues) with the Bug Report template
 - **Features:** Use [Issues](https://github.com/VarakornUnicornTech/UniOpsQC/issues) with the Feature Request template
