@@ -3,7 +3,7 @@ description: "Skills (slash commands) and subagent standard: pre-flight checks, 
 ---
 
 # Skills & Subagents Rules
-> Full standard: `TeamDocument/1. Policies/08_Skills_and_Subagents.md`
+> Full standard: `policies/08_Skills_and_Subagents.md`
 
 ## Skills (Slash Commands)
 Skills are reusable prompt templates in `.claude/skills/[name]/SKILL.md`.
@@ -19,7 +19,7 @@ Invoked with `/command-name [arguments]`.
 ```
 
 ### Skill Rules
-- Skills describe **procedures** — not policy. Policy lives in `TeamDocument/1. Policies/`.
+- Skills describe **procedures** — not policy. Policy lives in `policies/`.
 - Every skill reads `.claude/ProjectEnvironment.md` for paths — never hardcode paths.
 - Skills that create files determine next ORDER number by scanning target folder first.
 - Skills must log to appropriate file (RoundTable for Overseer, Team Chat for sub-teams).
