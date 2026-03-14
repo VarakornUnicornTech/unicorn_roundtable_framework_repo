@@ -29,7 +29,7 @@ Parse `$ARGUMENTS`. The first word is the action (default `status` if empty). Ro
 
 2. Scan `.claude/` structure and count:
    - CLAUDE.md present: YES/NO
-   - Policy files in `TeamDocument/1. Policies/` (expect 8)
+   - Policy files in `policies/` (expect 8)
    - Agent files in `agents/` (expect 5)
    - Skill folders in `skills/` (count subfolders)
    - ProjectEnvironment.md present: YES/NO
@@ -154,10 +154,10 @@ Performs a 3-way comparison: **local file** vs **base hash** (stored at install 
 **Local:** v[local] | **Remote:** v[remote]
 
 ### REMOTE ONLY — Safe to Apply ([N] files)
-- `.claude/TeamDocument/1. Policies/02_Ticket_and_Briefing.md`
+- `.claude/policies/02_Ticket_and_Briefing.md`
 
 ### LOCAL ONLY — Protected ([N] files)
-- `.claude/TeamDocument/1. Policies/06_Debugging_Protocol.md`
+- `.claude/policies/06_Debugging_Protocol.md`
 
 ### CONFLICT — Requires Decision ([N] files)
 - `.claude/CLAUDE.md`
@@ -251,5 +251,5 @@ All .backup files saved. Run `/template rollback` to undo.
 
 - **SHA-256 computation:** `sha256sum "<absolute-path>"` — extract first 64 hex characters.
 - **Remote URL pattern:** `https://raw.githubusercontent.com/VarakornUnicornTech/roundtable-framework/main/<path>` (spaces → `%20`).
-- **Never track:** `RoundTable/` logs, `TeamDocument/2. TeamChat/`, `ProjectEnvironment.md`, `CHANGELOG.md`.
+- **Never track:** `RoundTable/` logs, `team_chat/`, `ProjectEnvironment.md`, `CHANGELOG.md`.
 - **This skill ships with the framework** — consumers use it to pull future upstream updates safely.

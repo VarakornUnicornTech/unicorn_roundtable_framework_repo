@@ -13,7 +13,7 @@ Append a report entry to today's OverseerReport file following the RoundTable Ov
 2. **Determine today's date** in DD-MM-YYYY format.
 3. **Locate or create** the OverseerReport file:
    ```
-   .claude/TeamDocument/2. TeamChat/4. OverseerReport/DD-MM-YYYY_OverseerReport.md
+   .claude/team_chat/5. OverseerReport/DD-MM-YYYY_OverseerReport.md
    ```
    If the file doesn't exist, create it with a header: `# OverseerReport — DD-MM-YYYY`
 4. **If ticket ID provided**, read the ticket file to get:

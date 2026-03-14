@@ -33,16 +33,17 @@ You are performing the **RoundTable Commander Onboarding**. Execute all steps in
 
 ### 1a. Commander Identity
 
-Use `AskUserQuestion` with these questions (send all at once, max 4):
+Ask each question one at a time using `AskUserQuestion`.
 
 **Question 1:**
 > "What position title should AM and the teams use when addressing you?"
-- Options: `Commander` / `Boss` / `Chief`
+- Options: `Commander` / `Boss` / `Chief` / `Other — type your preferred title`
 - Header: `Callsign`
 - Description for each:
   - Commander — formal military-style rank
   - Boss — direct authority title
   - Chief — leadership-focused title
+  - Other — enter any custom title you prefer
 
 **Question 2:**
 > "What is your name?"
@@ -56,13 +57,13 @@ Use `AskUserQuestion` with these questions (send all at once, max 4):
 - Header: `Pronouns`
 
 **Question 4:**
-> "What language should RoundTable respond in for your messages? (In shared sessions, each user's language preference applies to responses directed at them.)"
-- Options: `English` / `Thai` / `Both (bilingual — respond in whichever language the message was written in)`
+> "What language should RoundTable respond in? Type your preferred language, or select an option below."
+- Options: `English` / `Mirror input language (bilingual — respond in whichever language the message was written in)`
 - Header: `Language`
 - Description for each:
   - English — all responses in English regardless of input language
-  - Thai — all responses in Thai regardless of input language
-  - Both (bilingual) — RoundTable mirrors the language of each individual message. If you write in English, the response is in English. If you write in Thai, the response is in Thai. This is the recommended setting for shared or multilingual sessions.
+  - Mirror input language (bilingual) — RoundTable mirrors the language of each individual message. If you write in English, the response is in English. If you write in another language, the response matches. Recommended for multilingual sessions.
+- Note: Most users will type their preferred language (e.g., "Thai", "Japanese", "Spanish") via the free-text input. The options above are common defaults.
 
 Save answers to profile section: `## Identity`
 
@@ -81,7 +82,7 @@ Run only the selected steps (1a, 2, 3 as applicable). Skip the rest.
 
 ### 2. Team & Orchestration
 
-Use `AskUserQuestion` with these questions (send all at once):
+Ask each question one at a time using `AskUserQuestion`.
 
 **Question 1:**
 > "Which teams should be active by default?" (multiSelect: true)
@@ -111,7 +112,7 @@ Save answers to profile section: `## Team & Orchestration`
 
 ### 3. Working Style
 
-Use `AskUserQuestion` with these questions (send all at once, max 4):
+Ask each question one at a time using `AskUserQuestion`.
 
 **Question 1:**
 > "How verbose should team responses be?"
@@ -124,12 +125,12 @@ Use `AskUserQuestion` with these questions (send all at once, max 4):
 
 **Question 2:**
 > "How much autonomy should the team have?"
-- Options: `No Trust — full report and explicit approval required for every action` / `Medium Trust — report and approval for major items, AM handles minor tasks independently` / `Full Trust — short concise report only, team executes autonomously without requiring approval`
+- Options: `Full Oversight — full report and explicit approval required for every action` / `Balanced — report and approval for major items, AM handles minor tasks independently` / `Autonomous — short concise report only, team executes autonomously without requiring approval`
 - Header: `Autonomy`
 - Description for each:
-  - No Trust — every action requires your explicit sign-off before execution. Full detailed report presented before and after. Nothing proceeds without your approval.
-  - Medium Trust — major decisions (architecture, new features, phase advances) require your approval. Minor tasks (formatting, small fixes, documentation updates) AM handles independently and reports after.
-  - Full Trust — team operates autonomously. You receive a short concise summary of what was done. Team makes implementation decisions on their own. You intervene only when you choose to.
+  - Full Oversight — every action requires your explicit sign-off before execution. Full detailed report presented before and after. Nothing proceeds without your approval.
+  - Balanced — major decisions (architecture, new features, phase advances) require your approval. Minor tasks (formatting, small fixes, documentation updates) AM handles independently and reports after.
+  - Autonomous — team operates autonomously. You receive a short concise summary of what was done. Team makes implementation decisions on their own. You intervene only when you choose to.
 
 **Question 3:**
 > "When AM or MT need to present you with a decision that has multiple valid options (architecture, stack choice, fix strategy), how should they present it?"
@@ -140,6 +141,35 @@ Use `AskUserQuestion` with these questions (send all at once, max 4):
   - Free text — AM/MT describe the options in prose within the response. You reply in free text with your choice. More conversational, less structured.
 
 Save answers to profile section: `## Working Style`
+
+---
+
+### 3.5. Confirm Before Saving
+
+Present a summary table of all collected answers and ask for confirmation:
+
+```
+Here is your Commander profile:
+
+  Callsign ........... [title]
+  Name ............... [name]
+  Pronouns ........... [pronouns]
+  Language ........... [language]
+  Active Teams ....... [teams]
+  Orchestration ...... Mode [A/B]
+  Phase Gate ......... [ON/OFF]
+  Verbosity .......... [level]
+  Autonomy ........... [Full Oversight / Balanced / Autonomous]
+  Decisions .......... [Context-first AskUserQuestion / Free text]
+```
+
+Use `AskUserQuestion`:
+> "Does this look correct?"
+- Options: `Yes — save profile` / `No — restart onboarding`
+- Header: `Confirm`
+
+- If **Yes** → proceed to Step 4.
+- If **No** → return to Step 1a and start over.
 
 ---
 
@@ -167,7 +197,7 @@ last_updated: DD-MM-YYYY
 
 ## Working Style
 - **Verbosity:** [Concise / Standard / Full]
-- **Autonomy Level:** [No Trust / Medium Trust / Full Trust]
+- **Autonomy Level:** [Full Oversight / Balanced / Autonomous]
 - **Architectural Decisions:** [Context-first AskUserQuestion / Free text]
 ```
 
@@ -190,7 +220,7 @@ Commander profile saved to .claude/UserProfile.md
   Orchestration ...... Mode [A/B]
   Phase Gate ......... [ON/OFF]
   Verbosity .......... [level]
-  Autonomy ........... [No Trust / Medium Trust / Full Trust]
+  Autonomy ........... [Full Oversight / Balanced / Autonomous]
   Decisions .......... [Context-first AskUserQuestion / Free text]
 
 RoundTable is ready. Welcome, [callsign] [name].
@@ -202,16 +232,16 @@ RoundTable is ready. Welcome, [callsign] [name].
 
 - This skill is **auto-triggered** by CLAUDE.md when `.claude/UserProfile.md` does not exist. Onboarding is the only permitted action until the profile is saved.
 - AM reads `UserProfile.md` at every session start and applies all preferences immediately.
-- **Callsign** is the position title (Commander/Boss/Chief) used by all team members when addressing the user in logs, reports, and responses.
+- **Callsign** is the position title (Commander/Boss/Chief/custom) used by all team members when addressing the user in logs, reports, and responses.
 - **Name** is the user's personal name. Used alongside callsign (e.g., "Chief Martin") or in informal contexts.
 - **Pronouns** are used by all team members when referring to Commander in third person.
-- **Language: Both (bilingual)** means RoundTable mirrors the language of each individual message — critical for shared sessions where different users may write in different languages.
+- **Language: Mirror input language (bilingual)** means RoundTable mirrors the language of each individual message — critical for shared sessions where different users may write in different languages.
 - **Verbosity** overrides default response length for all team outputs.
 - **Autonomy Level** controls how much approval the team needs:
-  - **No Trust** = full report + explicit approval for every action
-  - **Medium Trust** = approval for major items, AM handles minor independently
-  - **Full Trust** = short report, team executes autonomously
+  - **Full Oversight** = full report + explicit approval for every action
+  - **Balanced** = approval for major items, AM handles minor independently
+  - **Autonomous** = short report, team executes autonomously
 - **Architectural Decisions: Context-first AskUserQuestion** means MT and team Conductors MUST deliver a full explanation (diagram, comparison table, or analysis) BEFORE opening the AskUserQuestion choice UI. The user must have full context before being asked to choose.
 - **Phase Acceptance Gate** setting is applied as if Commander had toggled it in §2 policy.
-- Project-specific settings (tech stack, project type, structure mode, debug mode) are collected separately via `/project-init` — not during onboarding.
+- Project-specific settings (tech stack, project type, structure mode, debug mode) are configured per-project — not during onboarding.
 - Profile can be updated at any time by running `/roundtable-setup update`.

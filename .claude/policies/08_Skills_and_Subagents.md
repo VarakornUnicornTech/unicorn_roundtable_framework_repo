@@ -1,6 +1,6 @@
 # §8 — Skills (Slash Commands) & Subagent Standard
 
-> **Policy reference file.** Loaded on-demand from `.claude/TeamDocument/1. Policies/`. Core rules live in CLAUDE.md.
+> **Policy reference file.** Loaded on-demand from `.claude/policies/`. Core rules live in CLAUDE.md.
 
 ---
 
@@ -31,7 +31,7 @@ Skills are reusable prompt templates stored in `.claude/skills/[name]/SKILL.md`.
 ```
 
 ### Rules
-- Skill files describe **procedures** — not policy. Policy lives in `.claude/TeamDocument/1. Policies/`. Skills call on policy as context.
+- Skill files describe **procedures** — not policy. Policy lives in `.claude/policies/`. Skills call on policy as context.
 - Every skill must read `.claude/ProjectEnvironment.md` whenever it needs a project path — never hardcode paths.
 - Skills that create files must determine the next ORDER number by scanning the target folder before writing.
 - Skills must log to the appropriate file (RoundTable for Overseer, Team Chat for sub-teams) as part of their execution.
@@ -132,7 +132,7 @@ Roster: .claude/agents/[team].md
 Briefing: [PROJECT_ROOT]/Development/[ProjectName]/01_Implementation Logs/INDEV v1.0.0/Phase [N]/[TeamName]_Phase[N]_Briefing.md
 Your ticket scope: [specific ticket IDs]
 Commander direction: [Commander's input from Vision Gate, or "None — execute per briefing"]
-When complete: write your Team Chat session entry to .claude/TeamDocument/2. TeamChat/[N. TeamName]/[DD-MM-YYYY]_[TeamName].md, then return a compact summary of: (1) what you built, (2) files created/modified, (3) any blockers.
+When complete: write your Team Chat session entry to .claude/team_chat/[N. TeamName]/[DD-MM-YYYY]_[TeamName].md, then return a compact summary of: (1) what you built, (2) files created/modified, (3) any blockers.
 Do NOT advance to Phase [N+1] — auth: [free | hold]
 ```
 

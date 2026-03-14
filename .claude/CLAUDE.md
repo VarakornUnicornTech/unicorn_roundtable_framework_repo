@@ -11,7 +11,7 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 1. Re-read this entire CLAUDE.md file
 2. Re-read your agent file from `.claude/agents/[team].md`
 3. **AM (Overseer) MUST open or append to today's RoundTable file** (`RoundTable/DD-MM-YYYY_RoundTable.md`) and write a `## Session [N] — [Title]` entry **before** responding
-4. **Sub-teams MUST open or append to today's Team Chat log** (`.claude/TeamDocument/2. TeamChat/[N. TeamName]/DD-MM-YYYY_[TeamName].md`) and write a Session Start entry **before** beginning any ticket work
+4. **Sub-teams MUST open or append to today's Team Chat log** (`.claude/team_chat/[N. TeamName]/DD-MM-YYYY_[TeamName].md`) and write a Session Start entry **before** beginning any ticket work
 5. This applies to every single interaction — there is no minimum complexity threshold
 
 **Failure to log before responding is a critical protocol violation.**
@@ -52,7 +52,7 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 > * **Cipher** (Forensic Specialist) → `.claude/agents/cipher.md`
 
 5. **Read Phase Briefing Mail:** Before looking at any ticket or source code, locate and read your team's Phase Briefing Mail. Path: `Development/01_Implementation Logs/INDEV v1.0.0/Phase [N]/[TeamName]_Phase[N]_Briefing.md`. Do NOT begin ticket work until you have read it.
-6. **Pre-existing codebase check:** If the project has a pre-existing codebase, check `.claude/ProjectEnvironment.md` for the active mode and verify a PreExisting TechStack file exists before touching any code (see `TeamDocument/1. Policies/05_PreExisting_Codebase.md`).
+6. **Pre-existing codebase check:** If the project has a pre-existing codebase, check `.claude/ProjectEnvironment.md` for the active mode and verify a PreExisting TechStack file exists before touching any code (see `policies/05_PreExisting_Codebase.md`).
 
 ### Team Roles (Universal)
 
@@ -72,7 +72,7 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 **AM (AstonMartin) of Team Overseer** is the **Principal Manager** of the entire RoundTable organization.
 
 - AM is the **sole presenter** of all work to Commander ท่านผู้บัญชาการ, regardless of which team executed it
-- All team Conductors must file interaction summaries for AM to review (see `TeamDocument/1. Policies/03_TeamChat_and_Handover.md`)
+- All team Conductors must file interaction summaries for AM to review (see `policies/03_TeamChat_and_Handover.md`)
 - AM coordinates task assignment across all teams
 
 ## Chief Manager
@@ -99,7 +99,7 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 - Cipher operates **outside** the normal team hierarchy — not under AM or any Conductor
 - Deployed on-demand by Commander for hardware diagnostics, data recovery, disk forensics, and RAID reconstruction
 - Does **not** participate in phase briefings, the standard ticket workflow, RoundTable, or OverseerReport
-- Logs all findings in `.claude/TeamDocument/Diagnostic Log/` — file format: `[NUMBER]. [TASK]_DD_MM_YYYY.md`
+- Logs all findings in `.claude/team_chat/4. Cipher/` — file format: `[NUMBER]. [TASK]_DD_MM_YYYY.md`
 - AM may **not** reassign, redirect, or override Cipher's engagements — only Commander can
 
 ### Team Assignment Routing
@@ -125,7 +125,7 @@ Before responding to ANY prompt — including post-`/compact`, session resume, o
 ## Mandatory Protocols
 
 ### §1 — Logging Requirements
-> Full standard in: `TeamDocument/1. Policies/01_Logging_and_RoundTable.md`
+> Full standard in: `policies/01_Logging_and_RoundTable.md`
 
 **SESSION START RULE (MANDATORY — no exceptions):**
 AM must open (or append to) the daily RoundTable file and write a `## Session [N] — [Title]` entry **before** responding to any prompt. This applies to every single interaction — there is no minimum complexity threshold.
@@ -139,22 +139,22 @@ AM must open (or append to) the daily RoundTable file and write a `## Session [N
 **RoundTable Rotation Policy:** 400-line soft limit, 500-line hard limit. First file of the day is `DD-MM-YYYY_RoundTable_Vol1.md`. When it approaches 400 lines, open `Vol2`, `Vol3`… Update `_Index.md`. New Volume files include a Context Overlay section at top. Full details in §1 policy file.
 
 ### §2 — Ticket & Briefing Standards
-> Full standard in: `TeamDocument/1. Policies/02_Ticket_and_Briefing.md`
+> Full standard in: `policies/02_Ticket_and_Briefing.md`
 
 Key rules: Phase Dispatch Report required before any team begins work. One Briefing per team per phase. Briefings live at Phase root (not in team subfolders). Tickets are never deleted. Status values: `[ ]` PENDING → `[~]` IN PROGRESS → `[x]` Complete → `[!]` BLOCKED → `[>]` DEFERRED.
 
 **UX Smoke Test Gate:** Every user-facing ticket requires manual UX smoke test by Verification Scholar before Complete. **User Journey Walkthrough:** Full E2E walkthrough chaining all phase tickets before phase completion. **Commander Phase Acceptance Gate (toggleable):** OFF by default. When Commander declares intent to test a phase, no advance until COMMANDER-ACCEPTED. **Silent Failure = Critical Bug:** Any silent failure is CRITICAL severity. **Hotfix Regression Gate:** Every bug fix includes a permanent regression test.
 
 ### §3 — Cross-Team Protocol
-> Full standard in: `TeamDocument/1. Policies/03_TeamChat_and_Handover.md`
+> Full standard in: `policies/03_TeamChat_and_Handover.md`
 
-Key rules: Sub-teams log in `TeamDocument/2. TeamChat/`, not RoundTable. OverseerReport is the shared daily file for sub-team → Overseer reporting. HandOver files go in the originating team's `HandOver/` subfolder. HandOver files are never deleted.
+Key rules: Sub-teams log in `team_chat/`, not RoundTable. OverseerReport is the shared daily file for sub-team → Overseer reporting. HandOver files go in the originating team's `HandOver/` subfolder. HandOver files are never deleted.
 
-**Team Chat location:** `TeamDocument/2. TeamChat/[N. TeamName]/DD-MM-YYYY_[TeamName].md`
-**OverseerReport location:** `TeamDocument/2. TeamChat/4. OverseerReport/DD-MM-YYYY_OverseerReport.md`
+**Team Chat location:** `team_chat/[N. TeamName]/DD-MM-YYYY_[TeamName].md`
+**OverseerReport location:** `team_chat/5. OverseerReport/DD-MM-YYYY_OverseerReport.md`
 
 ### §4 — Development Structure & ProjectEnvironment
-> Full standard in: `TeamDocument/1. Policies/04_Development_Structure.md`
+> Full standard in: `policies/04_Development_Structure.md`
 
 **CRITICAL RULE — Plan Before Implementation:**
 1. Create a plan document FIRST in the appropriate Development folder
@@ -172,12 +172,12 @@ Two project modes:
 **State Transparency Rule:** No silent no-ops — every skipped operation must log why. **09_TestCase:** Mandatory test documentation folder in every Development directory. **Cross-Package Change Manifest:** Multi-package changes require a manifest listing all packages, files, and interface impacts. **Error Code Catalog:** Every project maintains `ErrorCatalog.md` with integer error codes (-1xxx to -5xxx). **Living Documentation Rule:** TechStack docs updated in the same session as code changes — Verification Scholar checks currency.
 
 ### §5 — Pre-Existing Codebase Standards
-> Full standard in: `TeamDocument/1. Policies/05_PreExisting_Codebase.md`
+> Full standard in: `policies/05_PreExisting_Codebase.md`
 
 **Tiered Scan Protocol:** L1 (directory scan) → L2 (key files per subsystem) → L3 (full scan, Commander authorization required). L3 requires 5 mandatory completeness checks — see §5 policy file.
 
 ### §6 — Debugging Protocol
-> Full standard in: `TeamDocument/1. Policies/06_Debugging_Protocol.md`
+> Full standard in: `policies/06_Debugging_Protocol.md`
 
 **Instrument-First Rule:** Never attempt a fix before you can see the system. Add observability first. Fix second.
 
@@ -186,7 +186,7 @@ Correct order: Instrument → Observe → Hypothesize → Fix → Verify.
 **RELEASE projects:** All debug probes prefixed `[DBG]`. Probes removed in the same commit as the fix. Findings documented before ticket closes. **INDEV projects:** Debug probes are PERSISTENT and toggled via runtime flag (`debugMode` setting / `DEBUG_MODE` env var). Probes stay across fixes — stripped only on RELEASE transition. Mandatory probe coverage for all message handlers, state transitions, event listeners, and error paths.
 
 ### §7 — Parallel Execution Policy
-> Full standard in: `TeamDocument/1. Policies/07_Parallel_Execution.md`
+> Full standard in: `policies/07_Parallel_Execution.md`
 
 All three sub-teams (Monolith, Syndicate, Arcade) work in parallel across every phase. No team waits for another team to fully finish before starting their own unblocked tickets.
 
@@ -205,7 +205,7 @@ All three sub-teams (Monolith, Syndicate, Arcade) work in parallel across every 
 ---
 
 ## Planning-First Workflow
-> Full workflow in: `TeamDocument/1. Policies/04_Development_Structure.md`
+> Full workflow in: `policies/04_Development_Structure.md`
 
 | Commander's Request | Destination Folder |
 |--------------------|-------------------|
@@ -220,22 +220,22 @@ All three sub-teams (Monolith, Syndicate, Arcade) work in parallel across every 
 
 | § | Topic | File |
 |---|-------|------|
-| §1 | Logging, RoundTable format, Rotation Policy, Output Delivered block | `TeamDocument/1. Policies/01_Logging_and_RoundTable.md` |
-| §2 | Ticket format, Briefing Mail, Phase Dispatch, UX Smoke Test, User Journey Walkthrough, Commander Phase Acceptance, Silent Failure Rule, Hotfix Regression Gate | `TeamDocument/1. Policies/02_Ticket_and_Briefing.md` |
-| §3 | Team Chat, OverseerReport, HandOver File Standard | `TeamDocument/1. Policies/03_TeamChat_and_Handover.md` |
-| §4 | Development structure, ProjectEnvironment, State Transparency, 09_TestCase, Cross-Package Manifest, Error Catalog, Living Docs | `TeamDocument/1. Policies/04_Development_Structure.md` |
-| §5 | Pre-existing codebase, Tiered Scan Protocol, L3 Completeness Verification | `TeamDocument/1. Policies/05_PreExisting_Codebase.md` |
-| §6 | Debugging Protocol, Instrument-First Rule, INDEV Persistent Probes, Cross-Layer Trace, Rewrite Threshold, Gap Bug Detection | `TeamDocument/1. Policies/06_Debugging_Protocol.md` |
-| §7 | Parallel Execution, ZCB Guarantee, Ticket Ownership, Commander Sync Gate | `TeamDocument/1. Policies/07_Parallel_Execution.md` |
-| §8 | Skills (slash commands), Subagent standard, Trigger Conditions, Pre-Flight Declaration | `TeamDocument/1. Policies/08_Skills_and_Subagents.md` |
-| §9 | Multi-Session Parallel Work, one-session-per-project, project-prefixed logging | `TeamDocument/1. Policies/09_Multi_Session_Parallel_Work.md` |
+| §1 | Logging, RoundTable format, Rotation Policy, Output Delivered block | `policies/01_Logging_and_RoundTable.md` |
+| §2 | Ticket format, Briefing Mail, Phase Dispatch, UX Smoke Test, User Journey Walkthrough, Commander Phase Acceptance, Silent Failure Rule, Hotfix Regression Gate | `policies/02_Ticket_and_Briefing.md` |
+| §3 | Team Chat, OverseerReport, HandOver File Standard | `policies/03_TeamChat_and_Handover.md` |
+| §4 | Development structure, ProjectEnvironment, State Transparency, 09_TestCase, Cross-Package Manifest, Error Catalog, Living Docs | `policies/04_Development_Structure.md` |
+| §5 | Pre-existing codebase, Tiered Scan Protocol, L3 Completeness Verification | `policies/05_PreExisting_Codebase.md` |
+| §6 | Debugging Protocol, Instrument-First Rule, INDEV Persistent Probes, Cross-Layer Trace, Rewrite Threshold, Gap Bug Detection | `policies/06_Debugging_Protocol.md` |
+| §7 | Parallel Execution, ZCB Guarantee, Ticket Ownership, Commander Sync Gate | `policies/07_Parallel_Execution.md` |
+| §8 | Skills (slash commands), Subagent standard, Trigger Conditions, Pre-Flight Declaration | `policies/08_Skills_and_Subagents.md` |
+| §9 | Multi-Session Parallel Work, one-session-per-project, project-prefixed logging | `policies/09_Multi_Session_Parallel_Work.md` |
 
 > **Loading rule:** Policy files are read on-demand. Teams do NOT need to read all 9 at session start — CLAUDE.md is sufficient for initialization. Read the specific policy when needed.
 
 ---
 
 ## Skills & Subagents
-> Full standard in: `TeamDocument/1. Policies/08_Skills_and_Subagents.md`
+> Full standard in: `policies/08_Skills_and_Subagents.md`
 
 Skills are prompt templates in `.claude/skills/` invoked with `/command-name`. Subagents are delegated sub-sessions for large or parallel tasks.
 
@@ -300,7 +300,7 @@ Each team has a dedicated agent definition in `.claude/agents/`.
 
 ## Rules (Path-Scoped Enforcement)
 
-Policy rules in `.claude/rules/` — loaded automatically based on file context. These complement the full policy files in `TeamDocument/1. Policies/`.
+Policy rules in `.claude/rules/` — loaded automatically based on file context. These complement the full policy files in `policies/`.
 
 | Rule File | Scope | What It Enforces |
 |-----------|-------|-----------------|
@@ -321,7 +321,7 @@ Policy rules in `.claude/rules/` — loaded automatically based on file context.
 | `PostToolUse` (Edit/Write) | Logs file changes to session audit trail |
 
 > **Configuration:** `.claude/settings.json` (hooks section) + `hooks/scripts/`
-> **Protected files:** `.claude/CLAUDE.md`, `.claude/TeamDocument/1. Policies/*`, `.claude/agents/*` (prompt hook in `settings.json`)
+> **Protected files:** `.claude/CLAUDE.md`, `.claude/policies/*`, `.claude/agents/*` (prompt hook in `settings.json`)
 > **Note:** Hooks MUST be defined in `.claude/settings.json` under the `"hooks"` key. Claude Code does NOT read `hooks/hooks.json`.
 
 ## Playwright MCP (Browser Automation)
