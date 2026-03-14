@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/roundtable-banner.png" alt="RoundTable Framework" width="100%">
+  <img src="assets/roundtable-banner.png" alt="UniOps Quantum Cycle" width="100%">
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 
 ## สารบัญ
 
-- [ทำไมต้อง RoundTable?](#-ทำไมต้อง-roundtable)
+- [ทำไมต้อง UniOps Quantum Cycle?](#-ทำไมต้อง-uniops-quantum-cycle)
 - [เริ่มต้นใช้งาน](#-เริ่มต้นใช้งาน)
 - [3 ระดับการใช้งาน](#-3-ระดับการใช้งาน)
 - [ทีม](#-ทีม)
@@ -41,7 +41,7 @@
 
 ---
 
-## 🤔 ทำไมต้อง RoundTable?
+## 🤔 ทำไมต้อง UniOps Quantum Cycle?
 
 <table>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 </table>
 
-| | Claude Code ทั่วไป | **RoundTable** |
+| | Claude Code ทั่วไป | **UniOps Quantum Cycle** |
 |---|---|---|
 | **โครงสร้าง** | Single assistant | ✅ 5 ทีม + 16 personas |
 | **การวางแผน** | 🔧 ไม่มีระบบ | ✅ Phase dispatch + ticket gates |
@@ -76,12 +76,12 @@
 
 **🇹🇭 ภาษาไทย:**
 ```
-ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+ติดตั้ง UniOps Quantum Cycle จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
 ```
 
 **🇬🇧 English:**
 ```
-Install the RoundTable Framework from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+Install UniOps Quantum Cycle from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
 ```
 
 > [!TIP]
@@ -222,7 +222,7 @@ Hooks กำหนดใน `.claude/settings.json` ภายใต้ key `"hoo
 
 | Hook | Event | ทำอะไร |
 |------|-------|--------|
-| `SessionStart` | เริ่ม session | ยืนยันว่า RoundTable governance framework ทำงานอยู่ |
+| `SessionStart` | เริ่ม session | ยืนยันว่า UniOps Quantum Cycle governance framework ทำงานอยู่ |
 | `check-ticket-exists` | PreToolUse (Edit/Write) | เตือนถ้าไม่มี ticket ก่อนแก้ไขโค้ด |
 | `log-file-change` | PostToolUse (Edit/Write) | บันทึกการเปลี่ยนแปลงไฟล์ลง audit trail |
 | Protected files | PreToolUse (Edit/Write) | Prompt hook — บล็อกการแก้ไข CLAUDE.md, policies, agents โดยไม่ได้รับอนุญาต |
@@ -260,7 +260,7 @@ your-project/
 │   └── scripts/                 # check-git-workflow.sh, check-ticket-exists.sh, log-file-change.sh
 ├── .mcp.json                    # Playwright browser automation
 ├── plugin.json                  # Plugin manifest
-└── RoundTable/                  # Session logs (สร้างตอน runtime)
+└── UniOps Quantum Cycle/        # Session logs (สร้างตอน runtime)
 ```
 
 ---
@@ -272,7 +272,7 @@ your-project/
 
 | นโยบาย | ครอบคลุมเรื่อง |
 |--------|--------------|
-| §1 Logging & RoundTable | การบันทึก session, รูปแบบ RoundTable, นโยบายหมุนเวียนไฟล์ |
+| §1 Logging & Session Logs | การบันทึก session, รูปแบบ log, นโยบายหมุนเวียนไฟล์ |
 | §2 Tickets & Briefings | การ dispatch phase, briefing mail, มาตรฐาน ticket, UX smoke test |
 | §3 Team Chat & Handover | โปรโตคอลข้ามทีม, OverseerReport, ไฟล์ส่งต่องาน |
 | §4 Development Structure | การจัดระเบียบโปรเจค, planning-first workflow, error catalog |
@@ -289,9 +289,9 @@ your-project/
 ## 🔧 การปรับแต่ง
 
 <details>
-<summary>🔧 วิธีปรับแต่ง RoundTable สำหรับโปรเจคของคุณ</summary>
+<summary>🔧 วิธีปรับแต่ง UniOps Quantum Cycle สำหรับโปรเจคของคุณ</summary>
 
-RoundTable ออกแบบมาให้ fork และปรับแต่งได้:
+UniOps Quantum Cycle ออกแบบมาให้ fork และปรับแต่งได้:
 
 - **เปลี่ยนชื่อสมาชิกทีม** — แก้ไขไฟล์ agent ให้ตรงกับชื่อรหัสที่คุณต้องการ
 - **เพิ่ม/ลบทีม** — สร้างไฟล์ agent ใหม่หรือลบที่ไม่ใช้
@@ -324,10 +324,10 @@ MIT License — ดูรายละเอียดที่ [LICENSE](LICENSE)
 ---
 
 <p align="center">
-  <img src="assets/roundtable-icon.png" alt="RoundTable" width="72">
+  <img src="assets/roundtable-icon.png" alt="UniOps Quantum Cycle" width="72">
 </p>
 <p align="center">
-  <b>RoundTable Framework v2.0.0</b><br>
+  <b>UniOps Quantum Cycle v2.0.0</b><br>
   สร้างด้วย ❤️ โดย <a href="https://www.unicorntechint.com">Unicorn Tech Integration Co., Ltd.</a>
   · กรุงเทพมหานคร, ประเทศไทย 🇹🇭
 </p>

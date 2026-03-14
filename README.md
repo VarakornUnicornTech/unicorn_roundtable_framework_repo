@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/roundtable-banner.png" alt="RoundTable Framework" width="100%">
+  <img src="assets/roundtable-banner.png" alt="UniOps Quantum Cycle" width="100%">
 </p>
 
 <p align="center">
@@ -28,9 +28,9 @@
 
 ## Table of Contents
 
-- [Why RoundTable?](#-why-roundtable)
+- [Why UniOps Quantum Cycle?](#-why-uniops-quantum-cycle)
 - [Quick Start](#-quick-start)
-- [Three Ways to Use](#-three-ways-to-use-roundtable)
+- [Three Ways to Use](#-three-ways-to-use-uniops-quantum-cycle)
 - [Teams](#-teams)
 - [Skills](#-skills)
 - [Rules & Hooks](#-rules-path-scoped)
@@ -41,7 +41,7 @@
 
 ---
 
-## 🤔 Why RoundTable?
+## 🤔 Why UniOps Quantum Cycle?
 
 <table>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 </table>
 
-| | Vanilla Claude Code | **RoundTable** |
+| | Vanilla Claude Code | **UniOps Quantum Cycle** |
 |---|---|---|
 | **Structure** | Single assistant | ✅ 5 teams + 16 personas |
 | **Planning** | 🔧 Ad hoc | ✅ Phase dispatch + ticket gates |
@@ -76,12 +76,12 @@ Copy and paste into Claude Code:
 
 **🇬🇧 English:**
 ```
-Install the RoundTable Framework from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+Install UniOps Quantum Cycle from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
 ```
 
 **🇹🇭 Thai / ภาษาไทย:**
 ```
-ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+ติดตั้ง UniOps Quantum Cycle จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
 ```
 
 > [!TIP]
@@ -114,7 +114,7 @@ Remove-Item -Recurse -Force .claude-template
 
 ---
 
-## 🎯 Three Ways to Use RoundTable
+## 🎯 Three Ways to Use UniOps Quantum Cycle
 
 > [!TIP]
 > Each level is fully opt-in. Start at Level 1 and expand as your project grows.
@@ -223,7 +223,7 @@ Hooks are defined in `.claude/settings.json` under the `"hooks"` key. Scripts li
 
 | Hook | Event | What It Does |
 |------|-------|-------------|
-| `SessionStart` | Session start | Confirms RoundTable governance framework is active |
+| `SessionStart` | Session start | Confirms UniOps Quantum Cycle governance framework is active |
 | `check-ticket-exists` | PreToolUse (Edit/Write) | Warns if no ticket exists before code edits |
 | `log-file-change` | PostToolUse (Edit/Write) | Logs file changes to session audit trail |
 | Protected files | PreToolUse (Edit/Write) | Prompt hook — blocks edits to CLAUDE.md, policies, agents without authorization |
@@ -261,7 +261,7 @@ your-project/
 │   └── scripts/                 # check-git-workflow.sh, check-ticket-exists.sh, log-file-change.sh
 ├── .mcp.json                    # Playwright browser automation
 ├── plugin.json                  # Plugin manifest
-└── RoundTable/                  # Session logs (created at runtime)
+└── UniOps Quantum Cycle/        # Session logs (created at runtime)
 ```
 
 ---
@@ -273,7 +273,7 @@ your-project/
 
 | Policy | What It Covers |
 |--------|---------------|
-| §1 Logging & RoundTable | Session logging, RoundTable format, rotation policy |
+| §1 Logging & Session Logs | Session logging, log format, rotation policy |
 | §2 Tickets & Briefings | Phase dispatch, briefing mail, ticket standards, UX smoke test |
 | §3 Team Chat & Handover | Cross-team protocol, OverseerReport, handoff files |
 | §4 Development Structure | Project organization, planning-first workflow, error catalog |
@@ -290,9 +290,9 @@ your-project/
 ## 🔧 Customization
 
 <details>
-<summary>🔧 How to customize RoundTable for your project</summary>
+<summary>🔧 How to customize UniOps Quantum Cycle for your project</summary>
 
-RoundTable is designed to be forked and customized:
+UniOps Quantum Cycle is designed to be forked and customized:
 
 - **Rename team members** — edit agent files to match your preferred code names
 - **Add/remove teams** — create new agent files or remove unused ones
@@ -325,10 +325,10 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  <img src="assets/roundtable-icon.png" alt="RoundTable" width="72">
+  <img src="assets/roundtable-icon.png" alt="UniOps Quantum Cycle" width="72">
 </p>
 <p align="center">
-  <b>RoundTable Framework v2.0.0</b><br>
+  <b>UniOps Quantum Cycle v2.0.0</b><br>
   Built with ❤️ by <a href="https://www.unicorntechint.com">Unicorn Tech Integration Co., Ltd.</a>
   · Bangkok, Thailand 🇹🇭
 </p>
