@@ -223,7 +223,7 @@ Hooks are defined in `.claude/settings.json` under the `"hooks"` key. Scripts li
 
 | Hook | Event | What It Does |
 |------|-------|-------------|
-| `SessionStart` | Session start | Confirms UniOps Quantum Cycle governance framework is active |
+| `SessionStart` | Session start | Confirms RoundTable governance framework is active |
 | `check-ticket-exists` | PreToolUse (Edit/Write) | Warns if no ticket exists before code edits |
 | `log-file-change` | PostToolUse (Edit/Write) | Logs file changes to session audit trail |
 | Protected files | PreToolUse (Edit/Write) | Prompt hook — blocks edits to CLAUDE.md, policies, agents without authorization |
@@ -261,7 +261,7 @@ your-project/
 │   └── scripts/                 # check-git-workflow.sh, check-ticket-exists.sh, log-file-change.sh
 ├── .mcp.json                    # Playwright browser automation
 ├── plugin.json                  # Plugin manifest
-└── UniOps Quantum Cycle/        # Session logs (created at runtime)
+└── RoundTable/                  # Session logs (created at runtime)
 ```
 
 ---
@@ -273,7 +273,7 @@ your-project/
 
 | Policy | What It Covers |
 |--------|---------------|
-| §1 Logging & Session Logs | Session logging, log format, rotation policy |
+| §1 Logging & RoundTable | Session logging, log format, rotation policy |
 | §2 Tickets & Briefings | Phase dispatch, briefing mail, ticket standards, UX smoke test |
 | §3 Team Chat & Handover | Cross-team protocol, OverseerReport, handoff files |
 | §4 Development Structure | Project organization, planning-first workflow, error catalog |

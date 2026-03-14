@@ -222,7 +222,7 @@ Hooks กำหนดใน `.claude/settings.json` ภายใต้ key `"hoo
 
 | Hook | Event | ทำอะไร |
 |------|-------|--------|
-| `SessionStart` | เริ่ม session | ยืนยันว่า UniOps Quantum Cycle governance framework ทำงานอยู่ |
+| `SessionStart` | เริ่ม session | ยืนยันว่า RoundTable governance framework ทำงานอยู่ |
 | `check-ticket-exists` | PreToolUse (Edit/Write) | เตือนถ้าไม่มี ticket ก่อนแก้ไขโค้ด |
 | `log-file-change` | PostToolUse (Edit/Write) | บันทึกการเปลี่ยนแปลงไฟล์ลง audit trail |
 | Protected files | PreToolUse (Edit/Write) | Prompt hook — บล็อกการแก้ไข CLAUDE.md, policies, agents โดยไม่ได้รับอนุญาต |
@@ -260,7 +260,7 @@ your-project/
 │   └── scripts/                 # check-git-workflow.sh, check-ticket-exists.sh, log-file-change.sh
 ├── .mcp.json                    # Playwright browser automation
 ├── plugin.json                  # Plugin manifest
-└── UniOps Quantum Cycle/        # Session logs (สร้างตอน runtime)
+└── RoundTable/                  # Session logs (สร้างตอน runtime)
 ```
 
 ---
@@ -272,7 +272,7 @@ your-project/
 
 | นโยบาย | ครอบคลุมเรื่อง |
 |--------|--------------|
-| §1 Logging & Session Logs | การบันทึก session, รูปแบบ log, นโยบายหมุนเวียนไฟล์ |
+| §1 Logging & RoundTable | การบันทึก session, รูปแบบ log, นโยบายหมุนเวียนไฟล์ |
 | §2 Tickets & Briefings | การ dispatch phase, briefing mail, มาตรฐาน ticket, UX smoke test |
 | §3 Team Chat & Handover | โปรโตคอลข้ามทีม, OverseerReport, ไฟล์ส่งต่องาน |
 | §4 Development Structure | การจัดระเบียบโปรเจค, planning-first workflow, error catalog |

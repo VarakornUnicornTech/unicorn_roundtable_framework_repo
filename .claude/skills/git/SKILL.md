@@ -831,7 +831,6 @@ All git commands executed by this skill append `# git-skill-internal` as a comme
 
 ## Notes
 
-- **Internal bypass marker:** All git commands run by this skill append `# git-skill-internal` to bypass the `check-git-workflow.sh` PreToolUse hook. Raw git state-changing commands without this marker are blocked.
 - **Branch naming convention:** Feature branches should follow `feat/`, `fix/`, `docs/`, `refactor/` prefixes. The `/git pr` action enforces this — PRs cannot be opened from `main`, `master`, or `dev`.
 - **Destination default:** Auto-detects — uses `dev` if the branch exists, otherwise `main`. Override with explicit argument: `/git commit main`.
 - **Upstream vs origin:** `origin` = your fork or primary remote. `upstream` = the source/parent repository. Use `/git sync upstream` to pull in upstream changes.
