@@ -1,16 +1,57 @@
-# RoundTable Framework For Claude Code
+<p align="center">
+  <img src="assets/roundtable-banner.png" alt="RoundTable Framework" width="100%">
+</p>
 
-> **ภาษาไทย / Thai:** [อ่าน README ภาษาไทย](README.th.md)
+<p align="center">
+  <a href="https://github.com/VarakornUnicornTech/roundtable-framework/releases"><img src="https://img.shields.io/badge/version-2.0.0-0d6efd?style=flat-square" alt="Version"></a>
+  <img src="https://img.shields.io/github/license/VarakornUnicornTech/roundtable-framework?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/stars/VarakornUnicornTech/roundtable-framework?style=flat-square&color=f0a500" alt="Stars">
+  <img src="https://img.shields.io/github/forks/VarakornUnicornTech/roundtable-framework?style=flat-square" alt="Forks">
+  <img src="https://img.shields.io/github/last-commit/VarakornUnicornTech/roundtable-framework?style=flat-square" alt="Last Commit">
+  <img src="https://img.shields.io/badge/Claude%20Code-compatible-7c3aed?style=flat-square" alt="Claude Code compatible">
+  <img src="https://img.shields.io/badge/made%20in-Thailand%20🇹🇭-e63946?style=flat-square" alt="Made in Thailand">
+</p>
 
-Governance for Claude Code — ship with confidence, not just speed.
+<p align="center">
+  <strong>ภาษาไทย / Thai:</strong> <a href="README.th.md">อ่าน README ภาษาไทย</a>
+</p>
 
-A structured multi-team AI governance framework that turns Claude Code into a coordinated engineering organization with specialized teams, approval gates, automated policy enforcement, and full audit trail.
+---
+
+> [!NOTE]
+> **Governance for Claude Code — ship with confidence, not just speed.**
+> A structured multi-team AI governance framework that turns Claude Code into a coordinated engineering organization with specialized teams, approval gates, automated policy enforcement, and full audit trail.
 
 **By [Unicorn Tech Integration Co., Ltd.](https://www.unicorntechint.com)**
 
 ---
 
+## Table of Contents
+
+- [Why RoundTable?](#why-roundtable)
+- [Quick Start](#quick-start)
+- [Three Ways to Use](#three-ways-to-use-roundtable)
+- [Teams](#teams)
+- [Skills](#skills)
+- [Rules & Hooks](#rules-path-scoped)
+- [Project Structure](#project-structure)
+- [Policies](#policy-reference)
+- [Customization](#customization)
+- [Requirements](#requirements)
+
+---
+
 ## Why RoundTable?
+
+<table>
+<tr>
+  <td align="center" width="20%">🏗️<br><b>5 Teams</b><br><sub>16 specialized personas</sub></td>
+  <td align="center" width="20%">📋<br><b>Phase Gates</b><br><sub>Ticket-driven workflow</sub></td>
+  <td align="center" width="20%">🔍<br><b>Full Audit Trail</b><br><sub>Every decision logged</sub></td>
+  <td align="center" width="20%">⚡<br><b>21 Skills</b><br><sub>Ready-made slash commands</sub></td>
+  <td align="center" width="20%">🛡️<br><b>Policy Engine</b><br><sub>9 enforced standards</sub></td>
+</tr>
+</table>
 
 | | Vanilla Claude Code | **RoundTable** |
 |---|---|---|
@@ -43,7 +84,8 @@ Install the RoundTable Framework from https://github.com/VarakornUnicornTech/rou
 ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
 ```
 
-> **Tip:** Use "install" — not "read" or "explain". Saying "install" makes Claude go straight to setup without reading every policy file first.
+> [!TIP]
+> Use **"install"** — not "read" or "explain". Saying "install" makes Claude go straight to setup without reading every policy file first.
 
 ### Manual Install
 
@@ -73,6 +115,9 @@ Then edit `.claude/ProjectEnvironment.md` with your project details and start Cl
 
 ## Three Ways to Use RoundTable
 
+> [!TIP]
+> Each level is fully opt-in. Start at Level 1 and expand as your project grows.
+
 ### Level 1 — "I just want better shipping"
 Use `/git commit` and `/git pr`. No governance overhead — just better shipping.
 
@@ -82,11 +127,32 @@ Use `/team-start`, `/phase-status`, `/bug-report`. Phase-based development witho
 ### Level 3 — "I want full governance"
 Enable all hooks, use agent teams, full logging. Enterprise-grade traceability.
 
-Each level is opt-in. Use only what you need.
-
 ---
 
 ## Teams
+
+```mermaid
+graph TD
+    Commander["👑 Commander\n(You)"]
+    AM["🎯 Overseer\nAM · MT · AS"]
+    MON["🏗️ Monolith\nBackend · DB · Cloud"]
+    SYN["⚡ Syndicate\nAPI · Security"]
+    ARC["🎨 Arcade\nFrontend · UI"]
+    CI["🔬 Cipher\nForensics · Recovery"]
+
+    Commander --> AM
+    Commander --> CI
+    AM --> MON
+    AM --> SYN
+    AM --> ARC
+
+    style Commander fill:#f0a500,color:#000,stroke:#f0a500
+    style AM fill:#1e6fb5,color:#fff,stroke:#1e6fb5
+    style MON fill:#1a7a4a,color:#fff,stroke:#1a7a4a
+    style SYN fill:#b52020,color:#fff,stroke:#b52020
+    style ARC fill:#7c3aed,color:#fff,stroke:#7c3aed
+    style CI fill:#444,color:#fff,stroke:#666
+```
 
 | Team | Domain | Style |
 |------|--------|-------|
@@ -95,6 +161,8 @@ Each level is opt-in. Use only what you need.
 | **Syndicate** | API integration, query optimization, security | Pragmatic, terse, performance-focused |
 | **Arcade** | Frontend UI, gamification, creative systems | Clever, modern, innovative |
 | **Cipher** | Hardware diagnostics, disk forensics, RAID recovery | Surgical, zero-write, verify-before-acting |
+
+---
 
 ## Skills
 
@@ -136,6 +204,8 @@ Each level is opt-in. Use only what you need.
 | `/template apply` | Upgrade with auto-backup + AI Smart Merge for conflicts |
 | `/template rollback [version?]` | Restore any previous version from versioned backups |
 
+---
+
 ## Rules (Path-Scoped)
 
 Policy rules in `.claude/rules/` load automatically based on file context:
@@ -161,6 +231,7 @@ Hooks are defined in `.claude/settings.json` under the `"hooks"` key. Scripts li
 | `log-file-change` | PostToolUse (Edit/Write) | Logs file changes to session audit trail |
 | Protected files | PreToolUse (Edit/Write) | Prompt hook — blocks edits to CLAUDE.md, policies, agents without authorization |
 
+> [!WARNING]
 > **Windows note:** Hook scripts require Git Bash or WSL. Ensure `bash` and `jq` are available in your PATH. Scripts use `#!/usr/bin/env bash` shebangs and Unix path separators.
 
 ## Playwright MCP (Browser Automation)
@@ -194,7 +265,12 @@ your-project/
 └── RoundTable/                  # Session logs (created at runtime)
 ```
 
+---
+
 ## Policy Reference
+
+<details>
+<summary>View all 9 policies</summary>
 
 | Policy | What It Covers |
 |--------|---------------|
@@ -208,7 +284,14 @@ your-project/
 | §8 Skills & Subagents | Skill catalogue, orchestration modes, subagent standards |
 | §9 Multi-Session | One-session-per-project, project-prefixed logging |
 
+</details>
+
+---
+
 ## Customization
+
+<details>
+<summary>Customize for your project</summary>
 
 RoundTable is designed to be forked and customized:
 
@@ -219,6 +302,10 @@ RoundTable is designed to be forked and customized:
 - **Tune rules** — edit `.claude/rules/` files to adjust enforcement level
 - **Change authority naming** — replace "Commander" with your preferred title
 - **Toggle hooks** — switch from warning to blocking mode in hook scripts
+
+</details>
+
+---
 
 ## Requirements
 
@@ -238,4 +325,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-*RoundTable Framework v2.0.0 — Built by Unicorn Tech Integration Co., Ltd.*
+<p align="center">
+  <img src="assets/roundtable-icon.png" alt="RoundTable" width="72"><br>
+  <sub><b>RoundTable Framework v2.0.0</b> — Built by <a href="https://www.unicorntechint.com">Unicorn Tech Integration Co., Ltd.</a></sub><br>
+  <sub>Bangkok, Thailand 🇹🇭</sub>
+</p>
