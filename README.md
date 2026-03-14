@@ -1,12 +1,23 @@
-# RoundTable Framework For Claude Code
+# UniOpsQC — Powered by the RoundTable Engine
 
 > **ภาษาไทย / Thai:** [อ่าน README ภาษาไทย](README.th.md)
 
-Governance for Claude Code — ship with confidence, not just speed.
+**Governance for Claude Code — ship with confidence, not just speed.**
 
 A structured multi-team AI governance framework that turns Claude Code into a coordinated engineering organization with specialized teams, approval gates, automated policy enforcement, and full audit trail.
 
 **By [Unicorn Tech Integration Co., Ltd.](https://www.unicorntechint.com)**
+
+### What does "UniOpsQC" stand for?
+
+| Part | Meaning | Description |
+|------|---------|-------------|
+| **Uni** | **Uni**corn Tech Integration | The company behind the framework |
+| **Ops** | Dev**Ops** | Structured DevOps workflow — phase gates, ticket-driven development, governed shipping |
+| **Q** | **Q**uantum | Speed and precision — AI-powered teams executing at quantum velocity |
+| **C** | **C**ycle | Complete governance cycle — plan, execute, review, ship, retrospect — every loop fully traced |
+
+> Internally, the governance engine is called **RoundTable** — a round table where every team has a voice, every decision is logged, and the Commander has final authority.
 
 ---
 
@@ -35,12 +46,12 @@ Copy and paste into Claude Code:
 
 **English:**
 ```
-Install the RoundTable Framework from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+Install the RoundTable Framework from https://github.com/VarakornUnicornTech/UniOpsQC into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/UniOpsQC/wiki/Getting-Started
 ```
 
 **Thai / ภาษาไทย:**
 ```
-ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/UniOpsQC ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/UniOpsQC/wiki/Getting-Started
 ```
 
 > **Tip:** Use "install" — not "read" or "explain". Saying "install" makes Claude go straight to setup without reading every policy file first.
@@ -49,7 +60,7 @@ Install the RoundTable Framework from https://github.com/VarakornUnicornTech/rou
 
 **Bash / Git Bash / macOS / Linux:**
 ```bash
-git clone https://github.com/VarakornUnicornTech/roundtable-framework.git .claude-template
+git clone https://github.com/VarakornUnicornTech/UniOpsQC.git .claude-template
 cp -r .claude-template/.claude/ your-project/.claude/
 cp .claude-template/plugin.json your-project/plugin.json
 cp .claude-template/.mcp.json your-project/.mcp.json
@@ -59,7 +70,7 @@ rm -rf .claude-template
 
 **PowerShell (Windows):**
 ```powershell
-git clone https://github.com/VarakornUnicornTech/roundtable-framework.git .claude-template
+git clone https://github.com/VarakornUnicornTech/UniOpsQC.git .claude-template
 Copy-Item -Recurse .claude-template\.claude\ your-project\.claude\
 Copy-Item .claude-template\plugin.json your-project\plugin.json
 Copy-Item .claude-template\.mcp.json your-project\.mcp.json

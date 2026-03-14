@@ -1,10 +1,21 @@
-# RoundTable Framework For Claude Code
+# UniOpsQC — ขับเคลื่อนด้วย RoundTable Engine
 
-ระบบบริหารจัดการทีม AI แบบหลายทีม สำหรับ [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — RoundTable จัดระเบียบ session ของ Claude Code ให้เป็นทีมเฉพาะทาง พร้อมบทบาทที่กำหนดชัดเจน มาตรฐานการบันทึก และ quality gate — เปลี่ยน AI assistant ตัวเดียวให้กลายเป็นองค์กรวิศวกรรมที่ทำงานประสานกัน
+ระบบบริหารจัดการทีม AI สำหรับ [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — **ship ด้วยความมั่นใจ ไม่ใช่แค่ความเร็ว** เปลี่ยน Claude Code ให้กลายเป็นองค์กรวิศวกรรมที่ทำงานประสานกัน ด้วยทีมเฉพาะทาง approval gate นโยบายที่บังคับใช้อัตโนมัติ และ audit trail ครบถ้วน
 
 **โดย [Unicorn Tech Integration Co., Ltd.](https://www.unicorntechint.com)**
 
 > **English:** [Read README in English](README.md)
+
+### "UniOpsQC" หมายถึงอะไร?
+
+| ส่วน | ความหมาย | คำอธิบาย |
+|------|----------|---------|
+| **Uni** | **Uni**corn Tech Integration | บริษัทผู้สร้าง framework |
+| **Ops** | Dev**Ops** | กระบวนการ DevOps ที่มีโครงสร้าง — phase gate, ticket-driven, governed shipping |
+| **Q** | **Q**uantum | ความเร็วและความแม่นยำ — ทีม AI ทำงานด้วยความเร็วระดับ quantum |
+| **C** | **C**ycle | วงจร governance ครบลูป — วางแผน, ดำเนินการ, ตรวจสอบ, ship, retrospect — ทุกรอบถูกบันทึกครบถ้วน |
+
+> ภายใน framework เรียก governance engine ว่า **RoundTable** — โต๊ะกลมที่ทุกทีมมีเสียง ทุกการตัดสินใจถูกบันทึก และ Commander มีอำนาจตัดสินใจสุดท้าย
 
 ---
 
@@ -27,12 +38,12 @@ RoundTable Framework คือ template การตั้งค่า `.claude/
 
 **ภาษาไทย:**
 ```
-ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/roundtable-framework ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+ติดตั้ง RoundTable Framework จาก https://github.com/VarakornUnicornTech/UniOpsQC ลงใน project ปัจจุบัน ตาม Getting Started ที่ https://github.com/VarakornUnicornTech/UniOpsQC/wiki/Getting-Started
 ```
 
 **English:**
 ```
-Install the RoundTable Framework from https://github.com/VarakornUnicornTech/roundtable-framework into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/roundtable-framework/wiki/Getting-Started
+Install the RoundTable Framework from https://github.com/VarakornUnicornTech/UniOpsQC into my current project. Follow the Getting Started guide at https://github.com/VarakornUnicornTech/UniOpsQC/wiki/Getting-Started
 ```
 
 > ### ⚠️ ข้อควรระวัง
@@ -58,14 +69,14 @@ Install the RoundTable Framework from https://github.com/VarakornUnicornTech/rou
 
    **Bash / Git Bash / macOS / Linux:**
    ```bash
-   git clone https://github.com/VarakornUnicornTech/roundtable-framework.git .claude-template
+   git clone https://github.com/VarakornUnicornTech/UniOpsQC.git .claude-template
    cp -r .claude-template/.claude/ your-project/.claude/
    rm -rf .claude-template
    ```
 
    **PowerShell (Windows):**
    ```powershell
-   git clone https://github.com/VarakornUnicornTech/roundtable-framework.git .claude-template
+   git clone https://github.com/VarakornUnicornTech/UniOpsQC.git .claude-template
    Copy-Item -Recurse .claude-template\.claude\ your-project\.claude\
    Remove-Item -Recurse -Force .claude-template
    ```
