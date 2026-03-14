@@ -186,14 +186,34 @@ Else:
 
 ### B3. Upstream Divergence Check
 ```
-If upstream remote is configured (detected in S3):
-  git fetch upstream # git-skill-internal
-  UPSTREAM_BEHIND=$(git rev-list --count HEAD..upstream/$DESTINATION 2>/dev/null || echo "0")
+Determine sync reference — upstream-first, origin fallback:
+  If upstream remote is configured (detected in S3):
+    CHECK_REMOTE="upstream"
+  Else:
+    CHECK_REMOTE="origin"
 
-  If UPSTREAM_BEHIND > 0:
-    → WARN: "Branch is $UPSTREAM_BEHIND commits behind upstream/$DESTINATION.
-       Consider running '/git sync upstream' before shipping."
-    → Advisory only — does not block. Logged in output.
+git fetch $CHECK_REMOTE 2>/dev/null # git-skill-internal
+BEHIND=$(git rev-list --count HEAD..$CHECK_REMOTE/$DESTINATION 2>/dev/null || echo "0")
+
+If BEHIND > 0:
+  For commit:
+    → ADVISORY: "Branch is $BEHIND commits behind $CHECK_REMOTE/$DESTINATION.
+       Consider '/git sync $CHECK_REMOTE' before committing."
+    → Does not block. Logged in output.
+
+  For pr:
+    → BLOCK — present Upstream Sync Gate:
+
+    ⚠️  Branch is $BEHIND commits behind $CHECK_REMOTE/$DESTINATION.
+        Proceeding now risks merge conflicts in the reviewer's repository.
+
+        (A) Sync now  — pull in remote changes via /git sync, then continue with PR
+        (B) Skip sync — proceed anyway (reviewer may see merge conflicts)
+
+    If A: run full sync procedure (SY1–SY6) against $CHECK_REMOTE/$DESTINATION,
+          then continue pr flow.
+    If B: log "Divergence of $BEHIND commits acknowledged — proceeding without sync."
+          Continue pr flow.
 ```
 
 ### B4. Diff Compare Check
