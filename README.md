@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/github/last-commit/VarakornUnicornTech/UniOpsQC?style=flat-square" alt="Last Commit">
   <img src="https://img.shields.io/badge/Claude%20Code-compatible-7c3aed?style=flat-square" alt="Claude Code compatible">
   <img src="https://img.shields.io/badge/made%20in-Thailand%20🇹🇭-e63946?style=flat-square" alt="Made in Thailand">
+  <a href="https://discord.gg/SwYzZjru"><img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=flat-square&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 <p align="center">
@@ -316,6 +317,7 @@ UniOps Quantum Cycle is designed to be forked and customized:
 **Unicorn Tech Integration Co., Ltd.**
 - Website: [unicorntechint.com](https://www.unicorntechint.com)
 - GitHub: [@VarakornUnicornTech](https://github.com/VarakornUnicornTech)
+- Discord: [Join our community](https://discord.gg/SwYzZjru)
 - Location: Bangkok, Thailand
 
 ## ⚖️ License
@@ -336,5 +338,6 @@ MIT License — see [LICENSE](LICENSE) for details.
   <a href="GETTING_STARTED.md">Getting Started</a> ·
   <a href="CONTRIBUTING.md">Contributing</a> ·
   <a href="CHANGELOG.md">Changelog</a> ·
+  <a href="https://discord.gg/SwYzZjru">Discord</a> ·
   <a href="LICENSE">License</a>
 </p>
